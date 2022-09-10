@@ -1,0 +1,35 @@
+.App {
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+    background-color: #F2f2f2;
+}
+
+/* Icons */
+
+i {
+    color: #1AC8DB;
+    padding: 8px;
+    font-size: medium;
+  }
+
+i:hover {
+    color: #159EAD;
+    transition: color ease-in-out 0.4s;
+  }
+
+  /* Links */
+
+a {
+    color: #545454;
+}
+  
+a:hover {
+    color: #159EAD;
+}
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
