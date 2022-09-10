@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 
 import styles from "../../styles/SignUpLogInForm.module.css";
@@ -7,10 +7,10 @@ import appStyles from "../../App.module.css";
 import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap";
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { SetCurrUserContext } from "../../App";
+import { useSetCurrUser } from "../../contexts/CurrUserContext";
 
 const LogInForm = () => {
-    const setCurrUser = useContext(SetCurrUserContext)
+    const setCurrUser = useSetCurrUser();
 
     const [logInInfo, setLogInInfo] = useState({
         username: "",

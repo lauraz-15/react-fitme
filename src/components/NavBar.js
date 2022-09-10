@@ -1,12 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 import logo from '../assets/logo-resized.png'
 import styles from '../styles/NavBar.module.css'
 import { NavLink } from "react-router-dom";
-import { CurrUserContext } from '../App';
+import { useCurrUser } from '../contexts/CurrUserContext';
 
 const NavBar = () => {
-  const currUser = useContext(CurrUserContext)
+  const currUser = useCurrUser();
 
   const notAuthenticatedView = (
     <>
