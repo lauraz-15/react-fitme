@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 import logo from '../assets/logo-resized.png'
 import styles from '../styles/NavBar.module.css'
 import { NavLink } from "react-router-dom";
+import { CurrUserContext } from '../App';
 
 const NavBar = () => {
+  const currUser = useContext(CurrUserContext)
 
+  const notAuthenticatedView = (
+    <>
+    <NavLink to="/login"  className={styles.NavLink} activeClassName={styles.Active}>
+    Log In
+    <i className="fa-solid fa-right-to-bracket"></i>
+    </NavLink>
+    <NavLink to="/signup"  className={styles.NavLink} activeClassName={styles.Active}>
+      Sign Up
+      <i className="fa-solid fa-user-plus"></i>
+    </NavLink>
+    </>
+  )
+  const authenticatedView = <>{currUser?.username}</>
 
   return (
 <Navbar className={styles.NavBar} bg="light" expand="md" fixed="top">
@@ -20,14 +35,7 @@ const NavBar = () => {
         Home
         <i className="fa-solid fa-house"></i>
       </NavLink>
-      <NavLink to="/login"  className={styles.NavLink} activeClassName={styles.Active}>
-      Log In
-      <i className="fa-solid fa-right-to-bracket"></i>
-      </NavLink>
-      <NavLink to="/signup"  className={styles.NavLink} activeClassName={styles.Active}>
-        Sign Up
-        <i className="fa-solid fa-user-plus"></i>
-      </NavLink>
+    {currUser ? authenticatedView : notAuthenticatedView}
     </Nav>
   </Navbar.Collapse>
   </Container>
