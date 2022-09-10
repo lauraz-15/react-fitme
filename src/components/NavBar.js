@@ -18,8 +18,8 @@ const NavBar = () => {
         Home
         <i className="fa-solid fa-house"></i>
       </NavLink>
-      <NavLink to="/signin"  className={styles.NavLink} activeClassName={styles.Active}>
-      Sign In
+      <NavLink to="/login"  className={styles.NavLink} activeClassName={styles.Active}>
+      Log In
       <i className="fa-solid fa-right-to-bracket"></i>
       </NavLink>
       <NavLink to="/signup"  className={styles.NavLink} activeClassName={styles.Active}>
