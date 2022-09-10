@@ -14,15 +14,15 @@ const NavBar = () => {
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse bg="light" id="basic-navbar-nav">
     <Nav className="ml-auto text-right">
-      <NavLink to="/">
+      <NavLink to="/" exact className={styles.NavLink} activeClassName={styles.Active}>
         Home
         <i className="fa-solid fa-house"></i>
       </NavLink>
-      <NavLink to="/signin">
+      <NavLink to="/signin"  className={styles.NavLink} activeClassName={styles.Active}>
       Sign In
       <i className="fa-solid fa-right-to-bracket"></i>
       </NavLink>
-      <NavLink to="/signup">
+      <NavLink to="/signup"  className={styles.NavLink} activeClassName={styles.Active}>
         Sign Up
         <i className="fa-solid fa-user-plus"></i>
       </NavLink>
