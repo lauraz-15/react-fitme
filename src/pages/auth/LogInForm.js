@@ -16,9 +16,7 @@ const LogInForm = () => {
     
     const { username, password } = logInInfo;
     const history = useHistory();
-    const [errors, setErros] = useState({
-
-    })
+    const [errors, setErros] = useState({})
     const handleChange = (event) => {
         setLogInInfo ({
             ...logInInfo,
@@ -29,7 +27,7 @@ const LogInForm = () => {
     const handleSumbit = async (event) => {
         event.preventDefault();
         try {
-          await axios.post('/dj-rest-auth/registration/', logInInfo)
+          await axios.post('/dj-rest-auth/login/', logInInfo)
           history.push('/')
         } catch(err){
             setErros(err.response?.data)
