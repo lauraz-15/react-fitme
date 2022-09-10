@@ -6,9 +6,31 @@ import { Route, Switch } from "react-router-dom";
 import "./api/axiosDefaults";
 import SignUpForm from './pages/auth/SignUpForm';
 import LogInForm from './pages/auth/LogInForm';
+import axios from 'axios';
+import { useEffect } from 'react';
+
+export const CurrUserContext = createContext()
+export const SetCurrUserContext = createContext()
 
 function App() {
+  const [currUser, setCurrUser] = useState(null)
+
+  const handleMount = async () => {
+    try {
+      const {data} = await axios.get('dj-rest-auth/user/')
+      setCurrUser(data)
+    } catch(err) {
+      console.log(err)
+    }
+  }
+
+  useEffect(() => {
+    handleMount()
+  }, [])
+
   return (
+    <CurrUserContext.Provider value={currUser}>
+      <SetCurrUserContext.Provider value={setCurrUser}>
     <div className={styles.App}>
       <NavBar/>
       <Container className={styles.Body}>
@@ -20,6 +42,8 @@ function App() {
         </Switch>
       </Container>
     </div>
+    </SetCurrUserContext.Provider>
+    </CurrUserContext.Provider>
   );
 }
 

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import { Link } from "react-router-dom";
 
 import styles from "../../styles/SignUpLogInForm.module.css";
@@ -7,8 +7,11 @@ import appStyles from "../../App.module.css";
 import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap";
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { SetCurrUserContext } from "../../App";
 
 const LogInForm = () => {
+    const setCurrUser = useContext(SetCurrUserContext)
+
     const [logInInfo, setLogInInfo] = useState({
         username: "",
         password: "",
@@ -27,7 +30,8 @@ const LogInForm = () => {
     const handleSumbit = async (event) => {
         event.preventDefault();
         try {
-          await axios.post('/dj-rest-auth/login/', logInInfo)
+          const {data} =  await axios.post('/dj-rest-auth/login/', logInInfo)
+          setCurrUser(data.user)
           history.push('/')
         } catch(err){
             setErros(err.response?.data)
