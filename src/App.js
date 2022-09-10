@@ -3,7 +3,7 @@ import { Button, Container } from 'react-bootstrap';
 import NavBar from './components/NavBar';
 import SignUpForm from './components/SignUpForm';
 import { Route, Switch } from "react-router-dom";
-// import "./api/axiosDefaults";
+import "./api/axiosDefaults";
 
 function App() {
   return (
