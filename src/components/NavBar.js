@@ -9,7 +9,7 @@ const NavBar = () => {
 <Navbar className={styles.NavBar} bg="light" expand="md" fixed="top">
    <Container>
     <NavLink to="/">
-      <Navbar.Brand href="#home"><img src={logo} height="60px" alt="site logo"/></Navbar.Brand>
+      <Navbar.Brand><img src={logo} height="60px" alt="site logo"/></Navbar.Brand>
     </NavLink>
   <Navbar.Toggle aria-controls="basic-navbar-nav" />
   <Navbar.Collapse bg="light" id="basic-navbar-nav">
