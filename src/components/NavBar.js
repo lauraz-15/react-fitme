@@ -5,6 +5,8 @@ import styles from '../styles/NavBar.module.css'
 import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
+
+
   return (
 <Navbar className={styles.NavBar} bg="light" expand="md" fixed="top">
    <Container>

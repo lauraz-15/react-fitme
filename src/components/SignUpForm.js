@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Link } from "react-router-dom";
 
 import styles from "../styles/SignUpLogInForm.module.css";
@@ -7,6 +7,21 @@ import appStyles from "../App.module.css";
 import { Form, Button, Image, Col, Row, Container } from "react-bootstrap";
 
 const SignUpForm = () => {
+    const [signUpInfo, setSignupInfo] = useState({
+        username: "",
+        password1: "",
+        password2: "",
+      });
+    
+    const { username, password1, password2 } = signUpInfo;
+    
+    const handleChange = (event) => {
+        setSignupInfo({
+            ...signUpInfo,
+            [event.target.name]: event.target.value,
+        });
+    };
+
   return (
     <div className={appStyles.Body}>
         <Container fluid="md">
@@ -16,17 +31,32 @@ const SignUpForm = () => {
                 <Form>
                 <Form.Group controlId="username">
                     <Form.Label className="d-none">Username</Form.Label>
-                    <Form.Control type="text" placeholder="username" name="username"/>
+                    <Form.Control 
+                    type="text" 
+                    placeholder="username" 
+                    name="username" 
+                    value={username}
+                    onChange={handleChange}/>
                 </Form.Group>
 
                 <Form.Group controlId="password1">
                     <Form.Label className="d-none">Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" name="password1"/>
+                    <Form.Control 
+                    type="password" 
+                    placeholder="Password" 
+                    name="password1" 
+                    value={password1}
+                    onChange={handleChange}/>
                 </Form.Group>
 
                 <Form.Group controlId="password2">
                     <Form.Label className="d-none">Password</Form.Label>
-                    <Form.Control type="password" placeholder="Confirm Password" name="password2"/>
+                    <Form.Control 
+                    type="password" 
+                    placeholder="Confirm Password" 
+                    name="password2" 
+                    value={password2}
+                    onChange={handleChange}/>
                 </Form.Group>
             
                 <Button className={btnStyles.Button} variant="primary" type="submit">
