@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, expanded } from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 import logo from '../assets/logo-resized.png'
 import styles from '../styles/NavBar.module.css'
@@ -6,12 +6,13 @@ import { NavLink } from "react-router-dom";
 import { useCurrUser, useSetCurrUser } from '../contexts/CurrUserContext';
 import Profile from './Profile';
 import axios from "axios";
+import Toggle from '../hooks/Toggle';
 
-const NavBar = () => {
+  const NavBar = () => {
   const currUser = useCurrUser();
   const setCurrUser = useSetCurrUser();
 
-  const handleLogOut = async (event) => {
+  const handleLogOut = async () => {
     try {
       await axios.post('/dj-rest-auth/logout/');
       setCurrUser(null);
@@ -19,6 +20,8 @@ const NavBar = () => {
       console.log(err)
     }
  }
+ 
+  const { opened, setOpened, ref } = Toggle();
 
   const notAuthenticatedView = (
     <>
@@ -35,7 +38,7 @@ const NavBar = () => {
 
 
   const authenticatedView = (
-        <div className={styles.Main}>
+        <>
         <NavLink to="/main" exact className={styles.NavLink} activeClassName={styles.Active}>
         <i className="fa-solid fa-house"></i>
         </NavLink>
@@ -54,16 +57,19 @@ const NavBar = () => {
         className={styles.NavLink}>
         <Profile src={currUser?.account_image} text="Account"/>
         </NavLink>
-        </div>   
+        </>   
   )
 
   return (
-<Navbar className={styles.NavBar}  expand="md" fixed="top">
+<Navbar expanded={opened} className={styles.NavBar}  expand="md" fixed="top">
    <Container>
     <NavLink to="/">
       <Navbar.Brand><img src={logo} height="60px" alt="site logo"/></Navbar.Brand>
     </NavLink>
-  <Navbar.Toggle aria-controls="basic-navbar-nav" />
+  <Navbar.Toggle 
+     aria-controls="basic-navbar-nav"
+     ref={ref}
+     onClick={() => setOpened(!opened)} />
   <Navbar.Collapse bg="light" id="basic-navbar-nav">
     <Nav className="ml-auto text-right">
     {currUser ? authenticatedView : notAuthenticatedView}
