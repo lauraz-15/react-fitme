@@ -3,8 +3,14 @@
     background-color: #fafafa
 }
 
+.Main {
+    /* margin: 0 auto !important;
+    background-color: green;
+    align-items: left; */
+}
+
 .NavLink {
-    padding: 10px;
+    /* padding: 10px; */
     color: #545454;
 }
 

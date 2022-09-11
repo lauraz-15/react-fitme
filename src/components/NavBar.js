@@ -35,7 +35,7 @@ const NavBar = () => {
 
 
   const authenticatedView = (
-        <>
+        <div className={styles.Main}>
         <NavLink to="/main" exact className={styles.NavLink} activeClassName={styles.Active}>
         <i className="fa-solid fa-house"></i>
         </NavLink>
@@ -54,7 +54,7 @@ const NavBar = () => {
         className={styles.NavLink}>
         <Profile src={currUser?.account_image} text="Account"/>
         </NavLink>
-        </>   
+        </div>   
   )
 
   return (
