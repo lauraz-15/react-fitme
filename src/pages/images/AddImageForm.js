@@ -7,6 +7,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import { Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Image } from "react-bootstrap";
 
 // import styles from "../../styles/AddEditImage.module.css";
 import appStyles from "../../App.module.css";
@@ -28,6 +29,16 @@ function AddImageForm() {
     });
   };
 
+  const handlePicture = (event) => {
+    if (event.target.files.length) {
+      URL.revokeObjectURL(picture);
+      setImageInfo({
+        ...imageInfo,
+        picture: URL.createObjectURL(event.target.files[0]),
+      });
+    }
+  };
+
   return (
     <div className={appStyles.Body}>
         <Container fluid="md">
@@ -35,12 +46,21 @@ function AddImageForm() {
             <Col lg={4}>
                 <h1>Add Image</h1>
                 <Form>
+
                 <Form.Group>
-                <Form.File id="exampleFormControlFile1" label="Example file input" />
+                <Form.Label className="d-none">Description</Form.Label>
+                  <figure>
+                    <Image src={picture} rounded />
+                  </figure>
+                <Form.File accept="image/*" 
+                id="exampleFormControlFile"
+                onChange={handlePicture} />
                 </Form.Group>
+                
                     {errors.picture?.map((message, idx) => (
                         <Alert variant="warning" key={idx}>{message}</Alert>
                     ))}
+
                 <Form.Group controlId="description">
                     <Form.Label className="d-none">Description</Form.Label>
                     <Form.Control 
@@ -49,8 +69,8 @@ function AddImageForm() {
                     name="description" 
                     value={description}
                     onChange={handleChange}/>
-
                 </Form.Group>
+
                     {errors.description?.map((message, idx) => (
                         <Alert variant="warning" key={idx}>{message}</Alert>
                     ))}
