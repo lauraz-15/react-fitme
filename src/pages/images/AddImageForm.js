@@ -9,7 +9,7 @@ import { Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { Image } from "react-bootstrap";
 
-// import styles from "../../styles/AddEditImage.module.css";
+import styles from "../../styles/AddEditImageForm.module.css"
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 
@@ -43,15 +43,13 @@ function AddImageForm() {
     <div className={appStyles.Body}>
         <Container fluid="md">
            <Row className="justify-content-md-center">
-            <Col lg={4}>
+            <Col lg={8}>
                 <h1>Add Image</h1>
                 <Form>
 
                 <Form.Group>
                 <Form.Label className="d-none">Description</Form.Label>
-                  <figure>
-                    <Image src={picture} rounded />
-                  </figure>
+  
                 <Form.File accept="image/*" 
                 id="exampleFormControlFile"
                 onChange={handlePicture} />
@@ -81,6 +79,9 @@ function AddImageForm() {
                 {errors.non_field_errors?.map((message, idx) => (
                         <Alert variant="warning" className="mt-4" key={idx}>{message}</Alert>
                     ))}
+                    <figure>
+                    <Image src={picture} rounded className={styles.Picture} />
+                  </figure>
             </Form>
             </Col>
         </Row>

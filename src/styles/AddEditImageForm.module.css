@@ -1,0 +1,8 @@
+.Picture {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-fit: contain;
+    position:relative;
+    margin-top: 20px;
+}
