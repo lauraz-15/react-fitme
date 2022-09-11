@@ -4,6 +4,7 @@ import logo from '../assets/logo-resized.png'
 import styles from '../styles/NavBar.module.css'
 import { NavLink } from "react-router-dom";
 import { useCurrUser } from '../contexts/CurrUserContext';
+import Profile from './Profile';
 
 const NavBar = () => {
   const currUser = useCurrUser();
@@ -42,7 +43,7 @@ const NavBar = () => {
         <NavLink to={`/accounts/${currUser?.account_id}`}
         className={styles.NavLink}
         onClick={() => {}}>
-        <img src={currUser?.account_image} height="50px;"/>
+        <Profile src={currUser?.account_image} text="Account"/>
         </NavLink>
         </>
         
