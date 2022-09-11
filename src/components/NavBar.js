@@ -38,7 +38,7 @@ import Toggle from '../hooks/Toggle';
 
 
   const authenticatedView = (
-        <>
+        <div>
         <NavLink to="/main" exact className={styles.NavLink} activeClassName={styles.Active}>
         <i className="fa-solid fa-house"></i>
         </NavLink>
@@ -57,7 +57,7 @@ import Toggle from '../hooks/Toggle';
         className={styles.NavLink}>
         <Profile src={currUser?.account_image} text="Account"/>
         </NavLink>
-        </>   
+        </div>   
   )
 
   return (
