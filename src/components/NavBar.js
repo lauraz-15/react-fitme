@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 import logo from '../assets/logo-resized.png'
 import styles from '../styles/NavBar.module.css'
 import { NavLink } from "react-router-dom";
-import { useCurrUser } from '../contexts/CurrUserContext';
+import { useCurrUser, useSetCurrUser } from '../contexts/CurrUserContext';
 import Profile from './Profile';
+import axios from "axios";
 
 const NavBar = () => {
   const currUser = useCurrUser();
+  const setCurrUser = useSetCurrUser();
+
+  const handleLogOut = async (event) => {
+    try {
+      await axios.post('/dj-rest-auth/logout/');
+      setCurrUser(null);
+    } catch(err){
+      console.log(err)
+    }
+ }
 
   const addImage = (
     <NavLink to="/images/add"  className={styles.NavLink} activeClassName={styles.Active}>
@@ -34,15 +45,18 @@ const NavBar = () => {
         <>
         <NavLink to="/kudos"  className={styles.NavLink} activeClassName={styles.Active}>
         <i className="fa-solid fa-thumbs-up"></i>
+        kudos
         </NavLink>
+
         <NavLink to="/" 
         className={styles.NavLink}
-        onClick={() => {}}>
+        onClick={handleLogOut}>
         <i className="fa-solid fa-person-walking-arrow-right"></i>
+        sign out
         </NavLink>
         <NavLink to={`/accounts/${currUser?.account_id}`}
-        className={styles.NavLink}
-        onClick={() => {}}>
+        className={styles.NavLink}>
+          profile
         <Profile src={currUser?.account_image} text="Account"/>
         </NavLink>
         </>
