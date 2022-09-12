@@ -1,17 +1,47 @@
+
 import React from 'react'
 import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { axiosRes } from '../../api/axiosDefaults';
 import Profile from '../../components/Profile';
 import { useCurrUser } from '../../contexts/CurrUserContext'
 
 const Image = (props) => {
     const {
-        id, owner, account_id, account_image, comments_count, kudos_id, kudos_count,
-        updated_on, description, picture, imagePage
+        id, 
+        owner,
+        account_id,
+        account_image,
+        comments_count,
+        kudos_id,
+        kudos_count,
+        updated_on, 
+        description, 
+        picture, 
+        imagePage, 
+        setImages,
     } = props
 
     const currUser = useCurrUser();
     const is_owner = currUser?.username === owner
+
+    const handleKudos = async () => {
+        try {
+            const {data} = await axiosRes.post('/kudos/', {kudos:id});
+            setImages((prevImages) => ({
+                ...prevImages,
+                results: prevImages.results.map((image) => {
+                    return image.id === id
+                    ? {...image, kudos_count: image.kudos_count + 1, kudos_id: data.id}
+                    : image;
+                }),
+            }));
+
+        } catch(err) {
+            console.log(err);
+            console.log(err.response)
+        }
+    };
 
   return (
     <Card>
@@ -35,14 +65,14 @@ const Image = (props) => {
                 <div>
                 {is_owner ? (<OverlayTrigger
                     placement="top"
-                    overlay={<Tooltip>You can't like your own post!</Tooltip>}>
+                    overlay={<Tooltip>Users can't give kudos to their own image!</Tooltip>}>
                     <i className="fa-regular fa-thumbs-up" />
                     </OverlayTrigger>
                 ) : kudos_id ? (<span><i className="fa-solid fa-thumbs-up" /></span>
-                ) : currUser ? (<span><i className="fa-regular fa-thumbs-up" /></span>
+                ) : currUser ? (<span onClick={handleKudos} ><i className="fa-regular fa-thumbs-up" /></span>
                 ) : (<OverlayTrigger
                     placement="top"
-                    overlay={<Tooltip>Log in to like posts!</Tooltip>}>
+                    overlay={<Tooltip>Log in to give kudos!</Tooltip>}>
                     <i className="fa-regular fa-thumbs-up" />
                     </OverlayTrigger>)}
                 {kudos_count}

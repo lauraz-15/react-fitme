@@ -21,16 +21,18 @@ const ImageDetailPage = () => {
                 ])
                 setImage({ results: [image]});
                 console.log([{ data: image }])
+                console.log(image)
             } catch (err) {
                 console.log(err)
             }
         }
         handleMount();
     }, [id])
+    
     return (
         <Row className="h-100">
           <Col className="py-2 p-0 p-lg-2" lg={8}>
-            <Image {...image.results[0]} setImage={setImage} imagePage/>
+            <Image {...image.results[0]} setImages={setImage} imagePage/>
             <Container className={appStyles.Content}>
               Comments
             </Container>
