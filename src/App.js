@@ -9,6 +9,7 @@ import LogInForm from './pages/auth/LogInForm';
 import AddImageForm from './pages/images/AddImageForm';
 import ImageDetail from './pages/images/ImageDetailPage';
 import ImageDetailPage from './pages/images/ImageDetailPage';
+import ImagesPage from './pages/images/ImgesPage';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
       <NavBar/>
       <Container className={styles.Body}>
       <Switch>
-          <Route exact path="/" render={() => <h1>Home page</h1>} />
+          <Route exact path="/" render={() => <ImagesPage/> } />
           <Route exact path="/login" render={() => <LogInForm/> } />
           <Route exact path="/signup" render={() => <SignUpForm/>} />
           <Route exact path="/images/add" render={() => <AddImageForm/> } />

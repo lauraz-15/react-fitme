@@ -27,12 +27,12 @@ const Image = (props) => {
 
     const handleKudos = async () => {
         try {
-            const {data} = await axiosRes.post('/kudos/', {kudos:id});
+            const { data } = await axiosRes.post("/kudos/", { image:id });
             setImages((prevImages) => ({
                 ...prevImages,
                 results: prevImages.results.map((image) => {
                     return image.id === id
-                    ? {...image, kudos_count: image.kudos_count + 1, kudos_id: data.id}
+                    ? { ...image, kudos_count: image.kudos_count + 1, kudos_id: data.id }
                     : image;
                 }),
             }));
@@ -42,6 +42,25 @@ const Image = (props) => {
             console.log(err.response)
         }
     };
+
+    const handleRemoveKudos = async () => {
+        try {
+            const { data } = await axiosRes.delete(`/kudos/${kudos_id}`);
+            setImages((prevImages) => ({
+                ...prevImages,
+                results: prevImages.results.map((image) => {
+                    return image.id === id
+                    ? { ...image, kudos_count: image.kudos_count - 1, kudos_id: null }
+                    : image;
+                }),
+            }));
+
+        } catch(err) {
+            console.log(err);
+            console.log(err.response)
+        }
+    };
+    
 
   return (
     <Card>
@@ -68,7 +87,7 @@ const Image = (props) => {
                     overlay={<Tooltip>Users can't give kudos to their own image!</Tooltip>}>
                     <i className="fa-regular fa-thumbs-up" />
                     </OverlayTrigger>
-                ) : kudos_id ? (<span><i className="fa-solid fa-thumbs-up" /></span>
+                ) : kudos_id ? (<span onClick={handleRemoveKudos}><i className="fa-solid fa-thumbs-up" /></span>
                 ) : currUser ? (<span onClick={handleKudos} ><i className="fa-regular fa-thumbs-up" /></span>
                 ) : (<OverlayTrigger
                     placement="top"
