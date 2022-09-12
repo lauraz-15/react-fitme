@@ -9,7 +9,7 @@ import axios from 'axios';
 import { axiosReq } from '../../api/axiosDefaults';
 
 
-const ImageDetail = () => {
+const ImageDetailPage = () => {
     const { id } = useParams();
     const [image, setImage] = useState({ results: [] })
 
@@ -19,6 +19,7 @@ const ImageDetail = () => {
                 const [{ data: image }] = await Promise.all([
                     axiosReq.get(`/images/${id}`),
                 ])
+                console.log([{ data: image }])
             } catch (err) {
                 console.log(err)
             }
@@ -39,4 +40,4 @@ const ImageDetail = () => {
       );
 }
 
-export default ImageDetail
+export default ImageDetailPage
