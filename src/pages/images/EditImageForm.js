@@ -31,10 +31,10 @@ function EditImageForm() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const {data} = await axiosReq.get(`/images/${id}/`)
+        const { data } = await axiosReq.get(`/images/${id}/`)
         const { picture, description, is_owner} = data;
 
-        is_owner ? setImageInfo({picture, description}) : history.push('/');
+        is_owner ? setImageInfo({ picture, description }) : history.push('/');
       } catch(err) {
         console.log(err);
       }
@@ -62,15 +62,21 @@ function EditImageForm() {
     }
   };
 
+
+
   const handleSumbit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
 
-    formData.append('picture', pictureUpload.current.files[0]);
     formData.append('description', description)
+
+    if (pictureUpload?.current?.files[0]){
+      formData.append("picture", pictureUpload.current.files[0]);
+    } 
+  
     try {
-      const { data } = await axios.post('/images/', formData)
-      history.push(`/images/${data.id}`)
+      await axiosReq.put(`/images/${id}/`, formData)
+      history.push(`/images/${id}`);
     } catch(err){
       console.log(err)
       if (err.response?.status !== 401) {
