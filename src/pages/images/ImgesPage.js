@@ -33,6 +33,13 @@ function ImagesPage({ message, filter = "" }) {
     };
 
     setLoaded(false);
+    const delay = setTimeout(() => {
+      fetchImages();
+    }, 1000);
+
+    return () => {
+      clearTimeout(delay);
+    };
     fetchImages();
   }, [filter, search, pathname]);
 
