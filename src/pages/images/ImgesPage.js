@@ -10,31 +10,38 @@ import Container from "react-bootstrap/Container";
 import Image from "./Image";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
+import { Button, FormControl } from "react-bootstrap";
+
+import btnStyles from "../../styles/Buttons.module.css";
 
 function ImagesPage({ message, filter = "" }) {
   const [images, setImages] = useState({ results: [] });
   const [loaded, setLoaded] = useState(false);
   const { pathname } = useLocation();
-
+  
   useEffect(() => {
     const fetchImages = async () => {
         try {
-            const {data} = await axiosReq.get(`/images/${filter}`)
-            setImages(data)
-            setLoaded(true)
+            const {data} = await axiosReq.get(`/images/${filter}`);
+            setImages(data);
+            setLoaded(true);
         } catch(err) {
             console.log(err)
         }
-    } 
-    setLoaded(false)
-    fetchImages()
+    };
+
+    setLoaded(false);
+    fetchImages();
   }, [filter, pathname]);
- 
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        something
+        <Form onSubmit={(event) => event.preventDefault()}>
+          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+          <Button className={btnStyles.Button} type="submit">Search</Button>
+        </Form>
+    
         {loaded ? (
           <>
             {images.results.length ? (
@@ -42,10 +49,9 @@ function ImagesPage({ message, filter = "" }) {
                 <Image key={image.id} {...image} setImages={setImages} />
               ))
             ) : (
-            //   <Container>
-            //     <Image src={nothing_found}/>
-            //   </Container>
-            <p>nothing found</p>
+              <Container>
+                  <p message={message}>nothing found</p>
+              </Container>
             )}
           </>
         ) : (
