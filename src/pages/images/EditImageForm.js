@@ -1,5 +1,4 @@
 import React, {  useEffect, useRef, useState } from "react";
-import axios from "axios";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
@@ -7,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import { Alert } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Image } from "react-bootstrap";
 
 import styles from "../../styles/AddEditImageForm.module.css"
@@ -90,7 +89,7 @@ function EditImageForm() {
         <Container fluid="md">
            <Row className="justify-content-md-center">
             <Col lg={8}>
-                <h1>Add Image</h1>
+                <h1>Edit Image</h1>
                 <Form onSubmit={handleSumbit}>
                 <Form.Group>
                 <Form.Label className="d-none">Description</Form.Label>
@@ -120,7 +119,7 @@ function EditImageForm() {
                     ))}
                       
                 <Button className={btnStyles.Button} variant="primary" type="submit">
-                    Post
+                    Update
                 </Button>
                 {errors.non_field_errors?.map((message, idx) => (
                         <Alert variant="warning" className="mt-4" key={idx}>{message}</Alert>
