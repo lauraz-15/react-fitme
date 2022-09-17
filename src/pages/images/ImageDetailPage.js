@@ -10,7 +10,7 @@ import Image from './Image.js'
 import AddCommentForm from '../comments/AddCommentForm';
 import { useCurrUser } from '../../contexts/CurrUserContext'
 
-const ImageDetailPage = () => {
+function ImageDetailPage() {
     const { id } = useParams();
     const [image, setImage] = useState({ results: [] })
 
@@ -21,18 +21,18 @@ const ImageDetailPage = () => {
     useEffect(() => {
         const handleMount = async () => {
             try {
-                const [{ data: image }] = await Promise.all([
+                const [{ data: image }, { data: comments }] = await Promise.all([
                     axiosReq.get(`/images/${id}`),
-                ])
-                setImage({ results: [image]});
-                console.log([{ data: image }])
-                console.log(image)
+                    axiosReq.get(`/comments/?image=${id}`),
+                ]);
+                setImage({ results: [image] });
+                setComments(comments);
             } catch (err) {
                 console.log(err)
             }
-        }
+        };
         handleMount();
-    }, [id])
+    }, [id]);
     
     return (
         <Row className="h-100">
@@ -49,6 +49,15 @@ const ImageDetailPage = () => {
               ) : comments.results.length ? (
                 "Comments"
               ) : null}
+              {comments.results.length ? (
+                comments.results.map(comment => (
+                  <p key={comment.id}>{comment.owner}: {comment.text}</p>
+                ) )
+              ) : currUser? (
+                <span> Be the first to leave a comment..</span>
+              ) : (
+                <span>No comments, please log in to leave a comment!</span>
+              )}
             </Container>
           </Col>
         </Row>

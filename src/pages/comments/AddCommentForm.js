@@ -9,17 +9,17 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 function AddCommentForm(props) {
   const { image, setImage, setComments, accountImage, account_id } = props;
-  const [info, setInfo] = useState("");
+  const [text, setText] = useState("");
 
   const handleChange = (event) => {
-    setInfo(event.target.value);
+    setText(event.target.value);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       const { data } = await axiosRes.post("/comments/", {
-        info,
+        text,
         image,
       });
       setComments((prevComments) => ({
@@ -34,7 +34,7 @@ function AddCommentForm(props) {
           },
         ],
       }));
-      setInfo("");
+      setText("");
     } catch (err) {
       console.log(err);
     }
@@ -44,18 +44,18 @@ function AddCommentForm(props) {
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
-          <Link to={`/accounts/${account_id}`}>
-            <Profile src={accountImage} />
-          </Link>
-          <Form.Control
-            placeholder="Type your comment here...."
-            as="textarea"
-            value={info}
-            onChange={handleChange}
-            rows={2}/>
+            <Link to={`/accounts/${account_id}`}>
+              <Profile src={accountImage} />
+            </Link>
+            <Form.Control
+              placeholder="Type your comment here...."
+              as="textarea"
+              value={text}
+              onChange={handleChange}
+              rows={2}/>
         </InputGroup>
       </Form.Group>
-      <button disabled={!info.trim()} type="submit">
+      <button disabled={!text.trim()} type="submit">
         Publish
       </button>
     </Form>
