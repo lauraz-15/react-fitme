@@ -9,6 +9,7 @@ import { axiosReq } from '../../api/axiosDefaults';
 import Image from './Image.js'
 import AddCommentForm from '../comments/AddCommentForm';
 import { useCurrUser } from '../../contexts/CurrUserContext'
+import Comment from '../comments/Comment';
 
 function ImageDetailPage() {
     const { id } = useParams();
@@ -50,9 +51,7 @@ function ImageDetailPage() {
                 "Comments"
               ) : null}
               {comments.results.length ? (
-                comments.results.map(comment => (
-                  <p key={comment.id}>{comment.owner}: {comment.text}</p>
-                ) )
+                <Comment key={Comment.id} {...comment}/> 
               ) : currUser? (
                 <span> Be the first to leave a comment..</span>
               ) : (
