@@ -19,10 +19,12 @@ function ImagesPage({ message, filter = "" }) {
   const [loaded, setLoaded] = useState(false);
   const { pathname } = useLocation();
   
+  const [search, setSearch] = useState("");
+
   useEffect(() => {
     const fetchImages = async () => {
         try {
-            const {data} = await axiosReq.get(`/images/${filter}`);
+            const {data} = await axiosReq.get(`/images/?${filter}search=${search}`);
             setImages(data);
             setLoaded(true);
         } catch(err) {
@@ -32,13 +34,18 @@ function ImagesPage({ message, filter = "" }) {
 
     setLoaded(false);
     fetchImages();
-  }, [filter, pathname]);
+  }, [filter, search, pathname]);
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <Form onSubmit={(event) => event.preventDefault()}>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+          <FormControl 
+          type="text" 
+          placeholder="Search" 
+          className="mr-sm-2"
+          value={search}
+          onChange={(event) => setSearch(event.target.value)} />
           <Button className={btnStyles.Button} type="submit">Search</Button>
         </Form>
     
