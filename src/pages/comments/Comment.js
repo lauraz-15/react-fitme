@@ -1,10 +1,17 @@
 import React from "react";
 import { Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { EditDropdown } from "../../components/Edit";
 import Profile from "../../components/Profile";
+import { useCurrUser } from '../../contexts/CurrUserContext'
+
+
 
 const Comment = (props) => {
   const { account_id, account_image, owner, updated_on, text } = props;
+  const currUser = useCurrUser();
+  const is_owner = currUser?.username === owner
+
 
   return (
     <div>
@@ -18,6 +25,9 @@ const Comment = (props) => {
           <span>{updated_on}</span>
           <p>{text}</p>
         </Media.Body>
+        {is_owner && (
+            <EditDropdown handleEdit={() => {}} handleDelete={() => {}}/>
+        )}
       </Media>
     </div>
   );
