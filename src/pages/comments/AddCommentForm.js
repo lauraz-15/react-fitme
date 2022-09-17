@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
+
+import Profile from "../../components/Profile";
 import { axiosRes } from "../../api/axiosDefaults";
-import Profile from "../components/Profile";
+
 
 function AddCommentForm(props) {
   const { image, setImage, setComments, accountImage, account_id } = props;
@@ -46,20 +48,14 @@ function AddCommentForm(props) {
             <Profile src={accountImage} />
           </Link>
           <Form.Control
-            className={styles.Form}
             placeholder="Type your comment here...."
             as="textarea"
-            value={content}
+            value={info}
             onChange={handleChange}
-            rows={2}
-          />
+            rows={2}/>
         </InputGroup>
       </Form.Group>
-      <button
-        className={`${styles.Button} btn d-block ml-auto`}
-        disabled={!content.trim()}
-        type="submit"
-      >
+      <button disabled={!info.trim()} type="submit">
         Publish
       </button>
     </Form>
