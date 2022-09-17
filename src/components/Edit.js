@@ -22,7 +22,7 @@ const Edit = React.forwardRef(({ onClick }, ref) => (
             Custom toggle
           </Dropdown.Toggle>
       
-          <Dropdown.Menu>
+          <Dropdown.Menu popperConfig={{ strategy: "fixed" }}>
             <Dropdown.Item onClick={handleEdit} aria-label="edit">Edit</Dropdown.Item>
             <Dropdown.Item onClick={handleDelete} aria-label="delete">Delete</Dropdown.Item>
           </Dropdown.Menu>
