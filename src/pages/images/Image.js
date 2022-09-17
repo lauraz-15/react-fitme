@@ -2,6 +2,7 @@
 import React from 'react'
 import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosRes } from '../../api/axiosDefaults';
 import { EditDropdown } from '../../components/Edit';
 import Profile from '../../components/Profile';
@@ -25,6 +26,11 @@ const Image = (props) => {
 
     const currUser = useCurrUser();
     const is_owner = currUser?.username === owner
+    const history = useHistory();
+
+    const handleEdit = () => {
+        history.push(`/images/${id}/edit`)
+    }
 
     const handleKudos = async () => {
         try {
@@ -71,7 +77,7 @@ const Image = (props) => {
                 {owner}<br/>
                 {description}
                 <div className="d-flex align-items-center">
-                {is_owner && imagePage && <EditDropdown/>}
+                {is_owner && imagePage && <EditDropdown handleEdit={handleEdit}/>}
                 </div>
             </Media>
         </Card.Body>
