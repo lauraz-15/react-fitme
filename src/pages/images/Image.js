@@ -3,6 +3,7 @@ import React from 'react'
 import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { axiosRes } from '../../api/axiosDefaults';
+import { EditDropdown } from '../../components/Edit';
 import Profile from '../../components/Profile';
 import { useCurrUser } from '../../contexts/CurrUserContext'
 
@@ -70,7 +71,7 @@ const Image = (props) => {
                 {owner}<br/>
                 {description}
                 <div className="d-flex align-items-center">
-                {is_owner && imagePage && "..."}
+                {is_owner && imagePage && <EditDropdown/>}
                 </div>
             </Media>
         </Card.Body>
