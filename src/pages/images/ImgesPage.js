@@ -13,6 +13,8 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { Button, FormControl } from "react-bootstrap";
 
 import btnStyles from "../../styles/Buttons.module.css";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreImages } from "../../utilities/utilities";
 
 function ImagesPage({ message, filter = "" }) {
   const [images, setImages] = useState({ results: [] });
@@ -40,7 +42,6 @@ function ImagesPage({ message, filter = "" }) {
     return () => {
       clearTimeout(delay);
     };
-    fetchImages();
   }, [filter, search, pathname]);
 
   return (
@@ -59,9 +60,18 @@ function ImagesPage({ message, filter = "" }) {
         {loaded ? (
           <>
             {images.results.length ? (
-              images.results.map((image) => (
-                <Image key={image.id} {...image} setImages={setImages} />
-              ))
+              <InfiniteScroll
+                children={
+                  images.results.map((image) => (
+                    <Image key={image.id} {...image} setImages={setImages} />
+                  ))
+                }
+                dataLength={images.results.length}
+                loader={"spinning"}
+                hasMore={!!images.next}
+                next={() => fetchMoreImages(images, setImages)}
+              />
+           
             ) : (
               <Container>
                   <p message={message}>nothing found</p>
