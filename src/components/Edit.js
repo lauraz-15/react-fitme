@@ -15,7 +15,7 @@ const Edit = React.forwardRef(({ onClick }, ref) => (
     </i>
   ));
 
-  export const EditDropdown = ({handleEdit}) => {
+  export const EditDropdown = ({handleEdit, handleDelete}) => {
     return (
         <Dropdown>
           <Dropdown.Toggle as={Edit}>
@@ -24,7 +24,7 @@ const Edit = React.forwardRef(({ onClick }, ref) => (
       
           <Dropdown.Menu>
             <Dropdown.Item onClick={handleEdit} aria-label="edit">Edit</Dropdown.Item>
-            <Dropdown.Item onClick={()=> {}} aria-label="delete">Delete</Dropdown.Item>
+            <Dropdown.Item onClick={handleDelete} aria-label="delete">Delete</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       );

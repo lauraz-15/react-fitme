@@ -32,6 +32,16 @@ const Image = (props) => {
         history.push(`/images/${id}/edit`)
     }
 
+    const handleDelete = async () => {
+        try {
+            await axiosRes.delete(`/images/${id}/`);
+            history.goBack()
+        } catch(err) {
+            console.log(err);
+        }
+    };
+
+
     const handleKudos = async () => {
         try {
             const { data } = await axiosRes.post("/kudos/", { image:id });
@@ -77,7 +87,7 @@ const Image = (props) => {
                 {owner}<br/>
                 {description}
                 <div className="d-flex align-items-center">
-                {is_owner && imagePage && <EditDropdown handleEdit={handleEdit}/>}
+                {is_owner && imagePage && <EditDropdown handleEdit={handleEdit} handleDelete={handleDelete}/>}
                 </div>
             </Media>
         </Card.Body>
