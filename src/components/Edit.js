@@ -18,17 +18,13 @@ const Edit = React.forwardRef(({ onClick }, ref) => (
   export const EditDropdown = () => {
     return (
         <Dropdown>
-          <Dropdown.Toggle as={Edit} id="dropdown-custom-components">
+          <Dropdown.Toggle as={Edit}>
             Custom toggle
           </Dropdown.Toggle>
       
           <Dropdown.Menu>
-            <Dropdown.Item eventKey="1">Red</Dropdown.Item>
-            <Dropdown.Item eventKey="2">Blue</Dropdown.Item>
-            <Dropdown.Item eventKey="3" active>
-              Orange
-            </Dropdown.Item>
-            <Dropdown.Item eventKey="1">Red-Orange</Dropdown.Item>
+            <Dropdown.Item onClick={()=> {}} aria-label="edit">Edit</Dropdown.Item>
+            <Dropdown.Item onClick={()=> {}} aria-label="delete">Delete</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
       );
