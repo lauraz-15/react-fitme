@@ -31,7 +31,7 @@ function AccountPage() {
             const [{data: pageAccount}, {data: images}] = 
             await Promise.all([
                 axiosReq.get(`/accounts/${id}/`),
-                axiosReq.get(`/images/?owner__account=${id}/`)
+                axiosReq.get(`/images/?owner__account=${id}`),
             ])
             setAccountData(prevState => ({
                 ...prevState,
@@ -98,21 +98,26 @@ function AccountPage() {
   const mainAccountImages = (
     <>
       <hr />
-        <Col>
-          {images.results.length ? (
-          <InfiniteScroll
-            children={images.results.map((image) => (
-              <Image key={image.id} {...image} setImages={setImages} />
-            ))}
-            dataLength={images.results.length}
-            loader={"spinning"}
-            hasMore={!!images.next}
-            next={() => fetchMoreImages(images, setImages)}
-          />
-        ) : (
-          <p>This user hasn't posted anythign yet..</p>
-        )}
-        </Col>
+        <Container>
+        {images.results.length ? (
+              <InfiniteScroll
+                children={
+                  images.results.map((image) => (
+                    <Image key={image.id} {...image} setImages={setImages} />
+                  ))
+                }
+                dataLength={images.results.length}
+                loader={"spinning"}
+                hasMore={!!images.next}
+                next={() => fetchMoreImages(images, setImages)}
+              />
+           
+            ) : (
+              <Container>
+                  <p>nothing images yet</p>
+              </Container>
+            )}
+        </Container>
       <hr />
     </>
   );
