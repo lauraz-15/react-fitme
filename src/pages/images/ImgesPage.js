@@ -3,10 +3,9 @@ import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-// import Image from "react-bootstrap";
+
 import Container from "react-bootstrap/Container";
 
-// import nothing_found from "../../assets/nothing_found"
 import Image from "./Image";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
