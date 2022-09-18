@@ -47,17 +47,37 @@ function AccountPage() {
             <Media>
                 <Profile src={currUser?.account_image} height={200}/>
             </Media>
-           
-
         </Col>
         <Col lg={6}>
-          <h3 className="m-2">Account username</h3>
-          <p>Account info</p>
+          <h3 className="m-2">{account?.owner}</h3>
+          <Row>
+            <Col>
+               <p>Imges: <span>{account?.images_count}</span></p>
+            </Col>
+            <Col>
+               <p>Followers: <span>{account?.followers_count}</span></p>
+            </Col>
+            <Col>
+               <p>Follow: <span>{account?.following_count}</span></p>
+            </Col>
+          </Row>
+          <>
+          <Row>
+            <Col>
+              <p>Curent weight: <span>{account?.current_weight}</span></p>
+            </Col>
+            <Col>
+              <p>Goal weight: <span>{account?.goal_weight}</span></p>
+            </Col>
+          </Row>
+          </>
         </Col>
         <Col lg={3} className="text-lg-right">
         <p>Follow - button</p>
         </Col>
-        <Col className="p-3">account text</Col>
+        <Col className="p-3">
+          <p>About: <span>{account?.content}</span></p>
+        </Col>
       </Row>
     </>
   );
