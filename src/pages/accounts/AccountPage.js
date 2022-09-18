@@ -12,6 +12,8 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useAccountData, useSetAccountData } from "../../contexts/AccountDataContext";
 import Profile from "../../components/Profile";
 import { Button, Media } from "react-bootstrap";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreImages } from "../../utilities/utilities";
 
 function AccountPage() {
   const [loaded, setLoaded] = useState(false);
@@ -21,18 +23,21 @@ function AccountPage() {
   const {pageAccount} = useAccountData();
   const [account] = pageAccount.results;
   const is_owner = currUser?.username === account?.owner;
-
+  const [images, setImages] = useState({ results: [] });
 
   useEffect(() => {
     const fetchInfo = async () => {
         try {
-            const [{data: pageAccount}] = await Promise.all([
-                axiosReq.get(`/accounts/${id}/`)
+            const [{data: pageAccount}, {data: images}] = 
+            await Promise.all([
+                axiosReq.get(`/accounts/${id}/`),
+                axiosReq.get(`/images/?owner__account=${id}/`)
             ])
             setAccountData(prevState => ({
                 ...prevState,
                 pageAccount: {results: [pageAccount]} 
             }))
+            setImages(images);
             setLoaded(true);
         } catch(err) {
             console.log(err)
@@ -93,7 +98,21 @@ function AccountPage() {
   const mainAccountImages = (
     <>
       <hr />
-      <p className="text-center">images</p>
+        <Col>
+          {images.results.length ? (
+          <InfiniteScroll
+            children={images.results.map((image) => (
+              <Image key={image.id} {...image} setImages={setImages} />
+            ))}
+            dataLength={images.results.length}
+            loader={"spinning"}
+            hasMore={!!images.next}
+            next={() => fetchMoreImages(images, setImages)}
+          />
+        ) : (
+          <p>This user hasn't posted anythign yet..</p>
+        )}
+        </Col>
       <hr />
     </>
   );
