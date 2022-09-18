@@ -11,7 +11,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useAccountData, useSetAccountData } from "../../contexts/AccountDataContext";
 import Profile from "../../components/Profile";
-import { Media } from "react-bootstrap";
+import { Button, Media } from "react-bootstrap";
 
 function AccountPage() {
   const [loaded, setLoaded] = useState(false);
@@ -20,6 +20,7 @@ function AccountPage() {
   const setAccountData = useSetAccountData();
   const {pageAccount} = useAccountData();
   const [account] = pageAccount.results;
+  const is_owner = currUser?.username === account?.owner;
 
 
   useEffect(() => {
@@ -74,6 +75,13 @@ function AccountPage() {
         </Col>
         <Col lg={3} className="text-lg-right">
         <p>Follow - button</p>
+
+           {currUser && !is_owner && 
+           (account?.following_id ? (
+            <Button>Unfollow</Button>
+           ) : (
+            <Button>Follow</Button>)
+            )}
         </Col>
         <Col className="p-3">
           <p>About: <span>{account?.content}</span></p>
