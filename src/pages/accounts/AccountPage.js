@@ -3,26 +3,52 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
-import Asset from "../../components/Asset";
-
+import Image from "../images/Image";
 import appStyles from "../../App.module.css";
 
 import { useCurrUser } from "../../contexts/CurrUserContext";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { axiosReq } from "../../api/axiosDefaults";
+import { useAccountData, useSetAccountData } from "../../contexts/AccountDataContext";
+import Profile from "../../components/Profile";
+import { Media } from "react-bootstrap";
 
 function AccountPage() {
   const [loaded, setLoaded] = useState(false);
   const currUser = useCurrUser();
+  const {id} = useParams();
+  const setAccountData = useSetAccountData();
+  const {pageAccount} = useAccountData();
+  const [account] = pageAccount.results;
+
 
   useEffect(() => {
-      setLoaded(true);
-  }, [])
+    const fetchInfo = async () => {
+        try {
+            const [{data: pageAccount}] = await Promise.all([
+                axiosReq.get(`/accounts/${id}/`)
+            ])
+            setAccountData(prevState => ({
+                ...prevState,
+                pageAccount: {results: [pageAccount]} 
+            }))
+            setLoaded(true);
+        } catch(err) {
+            console.log(err)
+        }
+    }
+      fetchInfo()
+  }, [id, setAccountData])
 
   const mainAccount = (
     <>
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
-          <p>Image</p>
+            <Media>
+                <Profile src={currUser?.account_image} height={200}/>
+            </Media>
+           
+
         </Col>
         <Col lg={6}>
           <h3 className="m-2">Account username</h3>

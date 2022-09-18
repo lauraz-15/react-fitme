@@ -55,7 +55,7 @@ import Toggle from '../hooks/Toggle';
         </NavLink>
         <NavLink to={`/accounts/${currUser?.account_id}`}
         className={styles.NavLink}>
-        <Profile src={currUser?.account_image} text="Account"/>
+        <Profile src={currUser?.account_image}/>
         </NavLink>
         </div>   
   )
