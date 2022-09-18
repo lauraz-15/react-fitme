@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosRes } from "../../api/axiosDefaults";
 import { EditDropdown } from "../../components/Edit";
 import Profile from "../../components/Profile";
 import { useCurrUser } from '../../contexts/CurrUserContext'
+import EditCommentForm from "./EditCommentForm";
 
 
 
 const Comment = (props) => {
   const { account_id, account_image, owner, updated_on, text,
   setImage, setComments, id } = props;
+  
+  const [editForm, setEditForm] = useState(false);
 
   const currUser = useCurrUser();
   const is_owner = currUser?.username === owner
@@ -44,10 +47,16 @@ const Comment = (props) => {
         <Media.Body className="align-self-center ml-2">
           <span>{owner}</span>
           <span>{updated_on}</span>
-          <p>{text}</p>
+          {editForm ? (
+          <EditCommentForm id={id} account_id={account_id} text={text} 
+          accountImage={account_image} setComments={setComments} 
+          setEditForm={setEditForm}/>
+          ) : (<p>{text}</p>)}
         </Media.Body>
-        {is_owner && (
-            <EditDropdown handleEdit={() => {}} handleDelete={handleDelete}/>
+        {is_owner && !editForm && (
+          <EditDropdown
+            handleEdit={() => setEditForm(true)}
+            handleDelete={handleDelete}/>
         )}
       </Media>
     </div>
