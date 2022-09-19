@@ -2,6 +2,7 @@ import axios from 'axios';
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import {axiosReq, axiosRes } from '../api/axiosDefaults';
 import { useHistory } from "react-router";
+import { permittedRefreshToken, removeTokenStamp } from '../utilities/utilities';
 
 
 export const CurrUserContext = createContext()
@@ -30,8 +31,9 @@ export const CurrUserProvider = ({children}) => {
     useMemo(() => {
       axiosReq.interceptors.request.use(
         async (config) => {
-          try {
-            await axios.post("/dj-rest-auth/token/refresh/");
+          if (permittedRefreshToken()) {
+            try {
+              await axios.post("/dj-rest-auth/token/refresh/");
           } catch (err) {
             setCurrUser((prevCurrentUser) => {
               if (prevCurrentUser) {
@@ -39,15 +41,17 @@ export const CurrUserProvider = ({children}) => {
               }
               return null;
             });
+            removeTokenStamp();
             return config;
           }
+        }
           return config;
         },
         (err) => {
           return Promise.reject(err);
         }
       );
-
+    
       axiosRes.interceptors.response.use(
         (response) => response,
         async (err) => {
@@ -61,6 +65,7 @@ export const CurrUserProvider = ({children}) => {
                 }
                 return null;
               });
+              removeTokenStamp();
             }
             return axios(err.config);
           }

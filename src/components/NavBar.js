@@ -7,6 +7,7 @@ import { useCurrUser, useSetCurrUser } from '../contexts/CurrUserContext';
 import Profile from './Profile';
 import axios from "axios";
 import Toggle from '../hooks/Toggle';
+import { removeTokenStamp } from '../utilities/utilities';
 
   const NavBar = () => {
   const currUser = useCurrUser();
@@ -16,6 +17,7 @@ import Toggle from '../hooks/Toggle';
     try {
       await axios.post('/dj-rest-auth/logout/');
       setCurrUser(null);
+      removeTokenStamp();
     } catch(err){
       console.log(err)
     }
