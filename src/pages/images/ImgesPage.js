@@ -14,12 +14,13 @@ import { Button, FormControl } from "react-bootstrap";
 import btnStyles from "../../styles/Buttons.module.css";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreImages } from "../../utilities/utilities";
+import { useCurrUser } from "../../contexts/CurrUserContext";
 
 function ImagesPage({ message, filter = "" }) {
   const [images, setImages] = useState({ results: [] });
   const [loaded, setLoaded] = useState(false);
   const { pathname } = useLocation();
-  
+  const currUser = useCurrUser();
   const [search, setSearch] = useState("");
 
   useEffect(() => {
@@ -41,7 +42,7 @@ function ImagesPage({ message, filter = "" }) {
     return () => {
       clearTimeout(delay);
     };
-  }, [filter, search, pathname]);
+  }, [filter, search, pathname, currUser]);
 
   return (
     <Row className="h-100">
