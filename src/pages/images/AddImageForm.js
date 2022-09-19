@@ -3,18 +3,20 @@ import axios from "axios";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { Alert } from "react-bootstrap";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-import { Alert } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { Image } from "react-bootstrap";
+import { Redirect } from "../../hooks/Redirect";
 
 import styles from "../../styles/AddEditImageForm.module.css"
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 
 function AddImageForm() {
+  Redirect("loggedOut")
   const [imageInfo, setImageInfo] = useState({
     picture: "",
     description: "",

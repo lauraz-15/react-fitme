@@ -9,9 +9,11 @@ import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useSetCurrUser } from "../../contexts/CurrUserContext";
 import { setTokenStamp } from "../../utilities/utilities";
+import { Redirect } from "../../hooks/Redirect";
 
 const LogInForm = () => {
     const setCurrUser = useSetCurrUser();
+    Redirect("loggedIn")
 
     const [logInInfo, setLogInInfo] = useState({
         username: "",
@@ -34,7 +36,7 @@ const LogInForm = () => {
           const {data} =  await axios.post('/dj-rest-auth/login/', logInInfo)
           setCurrUser(data.user);
           setTokenStamp(data);
-          history.push('/')
+          history.goBack();
         } catch(err){
             setErros(err.response?.data)
         }
