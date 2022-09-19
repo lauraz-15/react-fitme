@@ -15,6 +15,7 @@ import EditImageForm from './pages/images/EditImageForm';
 import AccountPage from './pages/accounts/AccountPage';
 import EditUsername from './pages/accounts/EditUsername';
 import EditPassword from './pages/accounts/EditPassword';
+import EditAccountInfo from './pages/accounts/EditAccountInfo';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
           <Route exact path="/images/:id/edit" render={() => <EditImageForm/> } />
           <Route exact path="/images/:id" render={() => <ImageDetailPage/> } />
           <Route exact path="/accounts/:id" render={() => <AccountPage/> } />
+          <Route exact path="/accounts/:id/edit/" render={() => <EditAccountInfo/>}/>
           <Route exact path="/accounts/:id/edit/username" render={() => <EditUsername/> }/>
           <Route exact path="/accounts/:id/edit/password" render={() => <EditPassword/> }/>
           <Route render={() => <h1>Page not found! :(</h1>} />
