@@ -41,11 +41,37 @@ export const AccountDataProvider = ({ children }) => {
       }
      }
 
+     const handleUnFollow = async (selectedAccount) => {
+      try {
+        const {data} = await axiosRes.delete(`/followers/${selectedAccount.following_id}`, {
+          followed: selectedAccount.id  
+        })
+
+        setAccountData((prevState) => ({
+          ...prevState,
+          pageAccount: {
+            results: prevState.pageAccount.results.map((account) => {
+              return account.id === selectedAccount.id ? 
+              {
+                ...account, followers_count: account.followers_count - 1,
+                following_id: null,
+              } : account.is_owner ? 
+              { ...account, following_count: account.following_count - 1  
+              } : {
+                account};
+            })
+        } 
+      })) 
+     } catch(err) {
+        console.log(err)
+      }
+     }
+
 
 
       return (
         <AccountDataContext.Provider value={accountData}>
-            <SetAccountDataContext.Provider value={{setAccountData, handleFollow}}>
+            <SetAccountDataContext.Provider value={{setAccountData, handleFollow, handleUnFollow}}>
                 {children}
             </SetAccountDataContext.Provider>
         </AccountDataContext.Provider>

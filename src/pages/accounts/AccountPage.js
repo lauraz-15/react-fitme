@@ -19,7 +19,7 @@ function AccountPage() {
   const [loaded, setLoaded] = useState(false);
   const currUser = useCurrUser();
   const {id} = useParams();
-  const {setAccountData, handleFollow} = useSetAccountData();
+  const {setAccountData, handleFollow, handleUnFollow} = useSetAccountData();
   const {pageAccount} = useAccountData();
   const [account] = pageAccount.results;
   const is_owner = currUser?.username === account?.owner;
@@ -81,7 +81,7 @@ function AccountPage() {
         <Col lg={3} className="text-lg-right">
            {currUser && !is_owner && 
            (account?.following_id ? (
-            <Button>Unfollow</Button>
+            <Button onClick={() => handleUnFollow(account)}>Unfollow</Button>
            ) : (
             <Button onClick={() => handleFollow(account)}>Follow</Button>)
             )}
