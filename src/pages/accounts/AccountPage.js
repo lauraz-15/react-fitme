@@ -14,6 +14,7 @@ import Profile from "../../components/Profile";
 import { Button, Media } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreImages } from "../../utilities/utilities";
+import { AccountEditDropdown } from "../../components/Edit";
 
 function AccountPage() {
   const [loaded, setLoaded] = useState(false);
@@ -48,6 +49,7 @@ function AccountPage() {
 
   const mainAccount = (
     <>
+    {account?.is_owner && <AccountEditDropdown id={account?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
             <Media>

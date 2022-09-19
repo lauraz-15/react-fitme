@@ -1,8 +1,8 @@
 import React from "react";
 import Dropdown from "react-bootstrap/Dropdown";
+import { useHistory } from "react-router";
 
-// The forwardRef is important!!
-// Dropdown needs access to the DOM node in order to position the Menu
+
 const Edit = React.forwardRef(({ onClick }, ref) => (
     <i
       className="fa-solid fa-pen-to-square"
@@ -30,3 +30,28 @@ const Edit = React.forwardRef(({ onClick }, ref) => (
       );
   };
   
+  export function AccountEditDropdown({ id }) {
+    const history = useHistory();
+    return (
+      <Dropdown>
+        <Dropdown.Toggle as={Edit} />
+        <Dropdown.Menu>
+          <Dropdown.Item
+            onClick={() => history.push(`/accounts/${id}/edit`)}
+            aria-label="edit-profile-info">
+            Edit Profile Info
+          </Dropdown.Item>
+          <Dropdown.Item
+            onClick={() => history.push(`/accounts/${id}/edit/username`)}
+            aria-label="username-edit">
+            Edit Username
+          </Dropdown.Item>
+          <Dropdown.Item
+            onClick={() => history.push(`/accounts/${id}/edit/password`)}
+            aria-label="update-password">
+            Change Your Password
+          </Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+    );
+  }
