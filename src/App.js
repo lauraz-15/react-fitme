@@ -13,6 +13,7 @@ import ImagesPage from './pages/images/ImgesPage';
 import { useCurrUser } from './contexts/CurrUserContext';
 import EditImageForm from './pages/images/EditImageForm';
 import AccountPage from './pages/accounts/AccountPage';
+import EditUsername from './pages/accounts/EditUsername';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
           <Route exact path="/images/:id/edit" render={() => <EditImageForm/> } />
           <Route exact path="/images/:id" render={() => <ImageDetailPage/> } />
           <Route exact path="/accounts/:id" render={() => <AccountPage/> } />
+          <Route exact path="/accounts/:id/edit/username" render={() => <EditUsername/> }/>
           <Route render={() => <h1>Page not found! :(</h1>} />
         </Switch>
       </Container>

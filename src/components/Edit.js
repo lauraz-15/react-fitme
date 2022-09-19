@@ -39,17 +39,17 @@ const Edit = React.forwardRef(({ onClick }, ref) => (
           <Dropdown.Item
             onClick={() => history.push(`/accounts/${id}/edit`)}
             aria-label="edit-profile-info">
-            Edit Profile Info
+            Edit My Profile Info
           </Dropdown.Item>
           <Dropdown.Item
             onClick={() => history.push(`/accounts/${id}/edit/username`)}
             aria-label="username-edit">
-            Edit Username
+            Edit My Username
           </Dropdown.Item>
           <Dropdown.Item
             onClick={() => history.push(`/accounts/${id}/edit/password`)}
             aria-label="update-password">
-            Change Your Password
+            Change My Password
           </Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
