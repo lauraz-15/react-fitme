@@ -1,7 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { axiosRes } from "../api/axiosDefaults";
-import { useCurrUser } from "./CurrUserContext";
-// import { useCurrUser } from '../../contexts/CurrUserContext'
+
 
 export const AccountDataContext = createContext();
 export const SetAccountDataContext = createContext();
@@ -14,16 +13,35 @@ export const AccountDataProvider = ({ children }) => {
         pageAccount: { results: [] }
       });
     
-    const currUser = useCurrUser();
+  
     const handleFollow = async (selectedAccount) => {
       try {
-        const {data} = await axiosRes.post('/followers/', {
-          followed: selectedAccount.id
+        const {data} = await axiosRes.post("/followers/", {
+          followed: selectedAccount.id  
         })
-      } catch(err) {
+
+        setAccountData((prevState) => ({
+          ...prevState,
+          pageAccount: {
+            results: prevState.pageAccount.results.map((account) => {
+              return account.id === selectedAccount.id ? 
+              {
+                ...account,
+                followers_count: account.followers_count + 1,
+                following_id: data.id,
+              } : account.is_owner ? 
+              { ...account, following_count: account.following_count + 1  
+              } : {
+                account};
+            })
+        } 
+      })) 
+     } catch(err) {
         console.log(err)
       }
      }
+
+
 
       return (
         <AccountDataContext.Provider value={accountData}>

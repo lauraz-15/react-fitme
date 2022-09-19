@@ -64,7 +64,7 @@ function AccountPage() {
                <p>Followers: <span>{account?.followers_count}</span></p>
             </Col>
             <Col>
-               <p>Follow: <span>{account?.following_count}</span></p>
+               <p>Following: <span>{account?.following_count}</span></p>
             </Col>
           </Row>
           <>
@@ -81,9 +81,9 @@ function AccountPage() {
         <Col lg={3} className="text-lg-right">
            {currUser && !is_owner && 
            (account?.following_id ? (
-            <Button onClick={() => handleFollow(account)}>Unfollow</Button>
+            <Button>Unfollow</Button>
            ) : (
-            <Button>Follow</Button>)
+            <Button onClick={() => handleFollow(account)}>Follow</Button>)
             )}
         </Col>
         <Col className="p-3">
