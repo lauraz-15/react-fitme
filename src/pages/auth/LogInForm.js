@@ -8,6 +8,7 @@ import { Form, Button, Image, Col, Row, Container, Alert } from "react-bootstrap
 import axios from "axios";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { useSetCurrUser } from "../../contexts/CurrUserContext";
+import { setTokenStamp } from "../../utilities/utilities";
 
 const LogInForm = () => {
     const setCurrUser = useSetCurrUser();
@@ -31,7 +32,8 @@ const LogInForm = () => {
         event.preventDefault();
         try {
           const {data} =  await axios.post('/dj-rest-auth/login/', logInInfo)
-          setCurrUser(data.user)
+          setCurrUser(data.user);
+          setTokenStamp(data);
           history.push('/')
         } catch(err){
             setErros(err.response?.data)

@@ -8,15 +8,13 @@ import { CurrUserProvider } from './contexts/CurrUserContext';
 import { AccountDataProvider } from './contexts/AccountDataContext';
 
 ReactDOM.render(
-  <React.StrictMode>
     <Router>
       <CurrUserProvider>
         <AccountDataProvider>
           <App />
         </AccountDataProvider>
       </CurrUserProvider>
-    </Router>
-  </React.StrictMode>,
+    </Router>,
   document.getElementById('root')
 );
 

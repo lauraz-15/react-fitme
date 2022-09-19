@@ -1,3 +1,4 @@
+import jwtDecode from "jwt-decode";
 import { axiosReq } from "../api/axiosDefaults";
 
 export const fetchMoreImages = async (info, setInfo) => {
@@ -14,3 +15,17 @@ export const fetchMoreImages = async (info, setInfo) => {
     }));
   } catch (err) {}
 };
+
+export const setTokenStamp = (data) => {
+  const refreshTokenStamp = jwtDecode(data?.refresh_token).exp;
+  localStorage.setItem("refreshTokenStamp", refreshTokenStamp);
+};
+
+export const permittedRefreshToken = () => {
+  return !!localStorage.getItem("refreshTokenStamp");
+};
+
+export const removeTokenStamp = () => {
+  localStorage.removeItem("refreshTokenStamp");
+};
+
