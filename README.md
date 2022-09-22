@@ -18,7 +18,7 @@ Link to code on github for the [github rapitory for API](https://github.com/laur
   + [Current User Goals](#current-user-goals "Current User Goals")
   + [New User Goals](#new-user-goals "New User Goals")
 + [User Stories](#user-stories "User Stories")
-  + [User stories](#artist-stories "Artist stories")
+  + [User stories](#user-stories "User stories")
   + [Admin stories](#admin-stories "Admin stories")
   + [Visitor stories](#visitor-stories "Visitor stories")
 + [Design](#design "Design")
@@ -69,6 +69,23 @@ The target users are adults of any age.
 
 ## New User Goals
 
-- encourage users to signup and become active users
+- Sign up functionality presented to the user encouraging them to join
+- Provide latest contetn on the landing page to invite users to scroll down
+
+# User Stories
+
+The project was built based on users stories. User stories are orgnised in Epics and milestones.
+See the summary of the kanban board [here](https://github.com/users/lauraz-15/projects/2/views/1)
+
+## User stories
+
+### EPIC #1: Account
+### EPIC #10: Image
+### EPIC #11: Kudos
+### EPIC #12: Comments
+### EPIC #13: Main Images Feed
+### EPIC #14: Account
+
+
 
 
