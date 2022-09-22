@@ -12,31 +12,63 @@ Link to code on github for the [github rapitory for API](https://github.com/laur
 
 ## Table of Contents
 + [UX](#ux "UX")
-  + [Site Purpose](#site-purpose "Site Purpose")
-  + [Site Goal](#site-goal "Site Goal")
-  + [Audience](#audience "Audience")
-  + [Communication](#communication "Communication")
+  + [Site Goals](#site-goals "Site Goals")
+  + [Future Site Goals](#future-site-goals "Future site goals")
+  + [Target Audience](#target-audience "Target Audience")
   + [Current User Goals](#current-user-goals "Current User Goals")
   + [New User Goals](#new-user-goals "New User Goals")
 + [User Stories](#user-stories "User Stories")
+  + [User stories](#artist-stories "Artist stories")
   + [Admin stories](#admin-stories "Admin stories")
-  + [Artist stories](#artist-stories "Artist stories")
   + [Visitor stories](#visitor-stories "Visitor stories")
 + [Design](#design "Design")
-  + [Colour Scheme](#colour-scheme "Colour Scheme")
+  + [Wireframes](#wireframes "Wireframes")
   + [Typography](#typography "Typography")
-  + [Imagery](#imagery "Imagery")
+  + [Colour Scheme](#colour-scheme "Colour Scheme")
+  + [Logo](#logo "logo")
 + [Features](#features "Features")
   + [Existing Features](#existing-features "Existing Features")
-  + [C.R.U.D](#crud "C.R.U.D")
+  + [Future Features](#future-features "Future Features")
++ [CRUD](#crud "CRUD - Create Read Update Delete")
++ [Components](#oomponents "Components")
 + [Testing](#testing "Testing")
   + [Validator Testing](#validator-testing "Validator Testing")
+  + [Manual Testing](#manual-testing "Manual Testing")
   + [Unfixed Bugs](#unfixed-bugs "Unfixed Bugs")
-+ [Technologies Used](#technologies-used "Technologies Used")
-  + [Main Languages Used](#main-languages-used "Main Languages Used")
-  + [Frameworks, Libraries & Programs Used](#frameworks-libraries-programs-used "Frameworks, Libraries & Programs Used")
-+ [Components](#oomponents "Components")
++ [Technologies](#technologies "Technologies")
+  + [Languages Used](#languages-used "Languages Used")
+  + [Frameworks & Libraries](#frameworks-libraries "Frameworks & Libraries")
 + [Deployment](#deployment "Deployment")
 + [Credits](#credits "Credits")
-  + [Content](#content "Content")
-  + [Media](#media "Media")
+
+# UX
+
+## Site Goals
+
+1. motivate users to get fit and keep users motivated
+2. keep users accountable when they are on their fitness journeys with having ability to uplaod images
+3. keep users engaged of the content and keep comming back, with having the main feed of all users on the main page
+4. provide users a space where they can see their fitness related photos all in one place in their account page
+5. provide and opportynity for users to engage with other users by commenting on each others images
+6. get users to see their favorited images in one feed so they get to review them when they want to
+
+## Future Site goals
+
+1. Connect the app with third party applications to easily import data such as daily step count, calorie count, sports activities and others. 
+2. Create a space for users to interact on a specific topic, such as group a about running or walking groups
+3. Add functionality to be able to share the content from FITME on other social media platforms to encourage other users to join FITME
+
+## Target Audience
+
+The target users are adults of any age.
+
+## Current User Goals
+
+- engage users to use site to see the latest content of other users
+- encourage users to publish their own content and get more kudos
+
+## New User Goals
+
+- encourage users to signup and become active users
+
+
