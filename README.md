@@ -76,10 +76,11 @@ The target users are adults of any age.
 
 The project was built based on users stories. User stories are orgnised in Epics and milestones.
 See the summary of the kanban board [here](https://github.com/users/lauraz-15/projects/2/views/1)
+The Epics are not organised in a numbered order due to github interface, since some of the user stories(issues) were added after the firs Epic.
 
 ## User stories
 
-### EPIC #1: Account
+### EPIC:#1:Navigation & Authentication
 ### EPIC #10: Image
 ### EPIC #11: Kudos
 ### EPIC #12: Comments
