@@ -1,0 +1,9 @@
+.Image {
+    object-fit: cover;
+    height: 520px;
+}
+
+.Owner {
+    font-weight: bold;
+    color: darkgray
+}

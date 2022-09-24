@@ -45,16 +45,17 @@ function ImagesPage({ message, filter = "" }) {
   }, [filter, search, pathname, currUser]);
 
   return (
-    <Row className="h-100">
+
+    <Row className="h-100 justify-content-lg-center">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <Form onSubmit={(event) => event.preventDefault()}>
           <FormControl 
           type="text" 
-          placeholder="Search" 
-          className="mr-sm-2"
+          placeholder="Search.." 
+          className="mr-sm-2 mb-3"
+          rounded
           value={search}
           onChange={(event) => setSearch(event.target.value)} />
-          <Button className={btnStyles.Button} type="submit">Search</Button>
         </Form>
     
         {loaded ? (
@@ -71,7 +72,6 @@ function ImagesPage({ message, filter = "" }) {
                 hasMore={!!images.next}
                 next={() => fetchMoreImages(images, setImages)}
               />
-           
             ) : (
               <Container>
                   <p message={message}>nothing found</p>
@@ -85,6 +85,8 @@ function ImagesPage({ message, filter = "" }) {
         )}
       </Col>
     </Row>
+          
+
   );
 }
 

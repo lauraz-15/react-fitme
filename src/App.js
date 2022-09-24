@@ -7,7 +7,6 @@ import "./api/axiosDefaults";
 import SignUpForm from './pages/auth/SignUpForm';
 import LogInForm from './pages/auth/LogInForm';
 import AddImageForm from './pages/images/AddImageForm';
-import ImageDetail from './pages/images/ImageDetailPage';
 import ImageDetailPage from './pages/images/ImageDetailPage';
 import ImagesPage from './pages/images/ImgesPage';
 import { useCurrUser } from './contexts/CurrUserContext';
@@ -45,7 +44,7 @@ function App() {
           <Route exact path="/accounts/:id/edit/username" render={() => <EditUsername/> }/>
           <Route exact path="/accounts/:id/edit/password" render={() => <EditPassword/> }/>
           <Route render={() => <PageNotFound/> } />
-        </Switch>
+      </Switch>
       </Container>
     </div>
   );

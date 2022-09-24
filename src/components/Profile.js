@@ -8,7 +8,6 @@ const Profile = ({ src, height = 50, text }) => {
     <span>
         <img className={styles.Profile} src={src} 
         height={height} width={height} alt="profile photo"/>
-        {text}
     </span>
   )
 }

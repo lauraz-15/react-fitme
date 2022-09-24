@@ -1,12 +1,14 @@
 
 import React from 'react'
-import { Card, Media, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { Card, Col, Container, Media, OverlayTrigger, Row, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import { axiosRes } from '../../api/axiosDefaults';
 import { EditDropdown } from '../../components/Edit';
 import Profile from '../../components/Profile';
 import { useCurrUser } from '../../contexts/CurrUserContext'
+
+import styles from "../../styles/Image.module.css"
 
 const Image = (props) => {
     const {
@@ -80,20 +82,41 @@ const Image = (props) => {
     
 
   return (
-    <Card>
+    <Card className='mb-3'>
         <Card.Body> 
             <Media className="align-items-center justify-content-between">
-                <Profile src={account_image} height={60}/>
-                {owner}<br/>
-                {description}
-                <div className="d-flex align-items-center">
-                {is_owner && imagePage && <EditDropdown handleEdit={handleEdit} handleDelete={handleDelete}/>}
-                </div>
+            <Container>
+                <Row>
+                    <Col>
+                        <Profile src={account_image} height={60}/> 
+                    </Col>
+                    <Col xs={8}>  
+                        <span className={styles.Owner}>
+                            {owner}
+                        </span> 
+                        <br/>
+                        {description}
+                    </Col>
+                    <Col>
+                        <div className="d-flex align-items-center">
+                    {is_owner && imagePage && <EditDropdown handleEdit={handleEdit} handleDelete={handleDelete}/>}
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
+             
+                  
+
+          
+
+       
+           
+
             </Media>
         </Card.Body>
         
         <Link to={`/images/${id}`}>
-        <Card.Img src={picture} alt={description} />
+        <Card.Img src={picture} alt={description} className={styles.Image}/>
         </Link>
         <Card.Body className="align-items-center justify-content-between">
         
