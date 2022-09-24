@@ -38,8 +38,10 @@ Link to code on github for the [github rapitory for API](https://github.com/laur
   + [Unfixed Bugs](#unfixed-bugs "Unfixed Bugs")
 + [Technologies](#technologies "Technologies")
   + [Languages Used](#languages-used "Languages Used")
-  + [Frameworks & Libraries](#frameworks-libraries "Frameworks & Libraries")
+  + [FrontEnd Libraries](#frontEnd-ibraries "FrontEnd Libraries")
+  + [Other Technologies](#other-technologues "Other Technologies")
 + [Deployment](#deployment "Deployment")
+  + [Version Control](#version-control "Version Control")
 + [Credits](#credits "Credits")
 
 
@@ -90,118 +92,179 @@ Please see the summary of the kanban board [here](https://github.com/users/laura
 
 #### USER STORY: Nav Bar
 - As a user I can see the nav bar on all pages, so that I can easily navigate around the site and change pages
+
 Project Goal: #8
 
 #### USER STORY: Routing
 - As a user I can navigate through pages quickly, so that can view content seamlessly without pages refreshing each time
+
 Project Goal: #8
 
 #### USER STORY: Navigation: Conditional rendering
 - As a logged out user I can see sign in and sign up buttons, so that sign in/sign up
+
 Project Goal: #8
 
 #### USER STORY: Authentication - Refreshing access tokens
 - As a user I can maintain my logged-in status, so that I don't have to log on too often
+
 Project Goal: #8
 
 #### USER STORY: Authentication - Logged in Status
 - As a user I can easily know if I am signed in or not, so that I can log on or off if I need to
+
 Project Goal: #8
 
 ### EPIC: Image
 
 #### USER STORY: Add Image
 - As a a logged in user I can capability, so that I can upload images on my account
+
 Project Goal: #2
 
 #### USER STORY: Image Detail
 - As a a user I can view image details, so that I can see the image in larger size
+
 Project Goal: #1
 
 #### USER STORY: Edit function for images
 - As a logged in user I can edit my images posts, so that I am in control of the content I publish
+
 Project Goal: #2
 
 #### USER STORY: Delete function for images
 - As a logged in user I can delete my images posts, so that I am in control of the content I publish
+
 Project Goal: #2
 
 ### EPIC: Kudos
 
 #### USER STORY: Add kudos to other user's images
 - As a logged in user I can add kudos to other user's images so that express my support to other users
+
 Project Goal: #1
 
 #### USER STORY: User kudos feed 
 - As a logged in user I can view the images I have given kudos to, so that so that I can easily find them again
+
 Project Goal: #6
 
 ### EPIC: Comments
 
 #### USER STORY: Add comments
 - As a logged in user I can add comments to an image, so that interact with other users
+
 Project Goal: #5
 
 #### USER STORY: View user comments
 - As a user I can view my own and other user's comments, so that I can interact with others
+
 Project Goal: #5
 
 #### USER STORY: Delete comments
 - As a logged in user I can delete my comments, so that I am in control of the content I publish
+
 Project Goal: #5
 
 #### USER STORY: Edit comments
 - As a logged in user I can edit my comments, so that I am in control of the content I publish
+
 Project Goal: #5
 
 ### EPIC: Main Images Feed
 
 #### USER STORY: Recent images feed
 - As a a user I can view most recent images on the main feed, so that I see fresh content first
+
 Project Goal: #3
 
 #### USER STORY: Search feature 
 - As a user I can search using keywords, so that I can find images and user accounts I want to view
+
 Project Goal: #8
 
 #### USER STORY: Infinite scroll - load images 
 - As a user I can scroll down the page infinitely, so that I can see new content loading without the need of changing the page
+
 Project Goal: #3
 
 ### EPIC: Account
 
 #### USER STORY: Authentication - Sign up
 - As a user I can sign up and create a new profile, so that I am able to use all features of the website
+
 Project Goal: #7
 
 #### USER STORY: Authentication - Sign in
 - As a site user I can log on to my account, so that I can use the functionality for signed in users
+
 Project Goal: #7
 
 #### USER STORY: Account details
 - As a user I can view other user's account photo and name, so that I can easily check users account page
+
 Project Goal: #5
 
 #### USER STORY: Account Page
 - As a user I can other user's profile pages, so that I can learn more about them
+
 Project Goal: #5
 
 #### USER STORY: Following function
 - As a logged in user I can follow other users, so that I can see their latest photos posted on my home page
+
 Project Goal: #5
 
 #### USER STORY: Unfollow function
 - As a logged in user I can unfollow other users, so that I don't their posted content on my homepage
+
 Project Goal: #5
 
 #### USER STORY: Edit account details
 - As a registered user I can edit my own profile, so that I can share more details about me to other users
+
 Project Goal: #4
 
 #### USER STORY: My Account page
 - As a logged in user I can view my own account page, so that I can see all my uploaded photos and account stats in one place
+
 Project Goal: #4
 
 
+
+
+# Technologies
+
+## Languages Used
+
+- HTML5
+- CSS3
+- Javascript
+- JSX
+- Python (The backend)
+- Django Rest Framework (The backend)
+- SQL- Postgres (The backend)
+
+### FrontEnd Libraries
+
+[React] Used as the main Frontend lbrary to build the application
+[ReactBootstrap] Used to add structure and style to Components, such as the nav bar, forms etc.
+[Axios](https://axios-http.com/docs/intro) Used for API requests
+[jwt-decode](https://www.npmjs.com/package/jwt-decode) used to set up access tokens
+[React Infite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component) used to implement infinite scroll option for image feed pages
+[React Router Dom](https://v5.reactrouter.com/web/guides/quick-start) used for url links and pages
+
+
+### Other Technologies
+
+[Canva](https://www.canva.com/en_gb/) Used fro logo design
+[Google Fonts](https://fonts.google.com/) Used to import the fonts for the page
+[Colorhunt.co](https://colorhunt.co/palette/93b5c6c9ccd5e4d8dcffe3e3) Used to generate a color pallette
+[Favicon.io](https://favicon.io/) Used to create a favicon
+[Github](https://github.com/) Used to build and deploy the site
+[Git](https://git-scm.com/) Used for version control to commit and push code on github raspitory
+[Google Developer Tools](https://developer.chrome.com/docs/devtools/) was used to test responsivness and debug the code
+[Font Awesome](https://fontawesome.com/) Used to add icons
+[Balsamiq](https://balsamiq.com/) Used to create wireframes
 
 
