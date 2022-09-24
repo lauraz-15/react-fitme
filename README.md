@@ -235,7 +235,7 @@ Project Goal: #4
 
 # Technologies
 
-## Languages Used
+### Languages Used
 
 - HTML5
 - CSS3
@@ -269,3 +269,36 @@ scroll option for image feed pages
 - [Balsamiq](https://balsamiq.com/) Used to create wireframes
 
 
+# Deployment
+
+The repository is built on github, but deployment managed on Heroku. 
+To deply the application I have done the following steps:
+
+#### Github
+1. Log on to the github and press create a new repository
+2. Click on gitpod and open the workspace
+3. Install React with the following command:
+
+npx create-react-app . --template git+https://github.com/Code-Institute-Org/cra-template-moments.git --use-npm
+
+4. Make sure all files have been pushed to github useing the commands git add, git commit -m  and git push(explaind in the Version control section)
+
+#### Heroku
+5. Log on to Heroku and create a new app and add the name
+6. Click on Deploy tab and select Github from the selection
+7. Serch for the repository just created on github and click "Connect"
+8. Then scroll down the page and click on "Deploy Branch"
+9. Once the build is finished click on the button "Open App" to launch the live site
+
+Log in to heroku.com and open the dashboard for your react application (remember this is separate from the DRF application that runs your API)
+Select the “Deploy” tab in the dashboard
+Scroll down to the bottom and then select “Deploy Branch”
+Wait for your build to complete (you can click “view build log” to watch the process in a larger window)
+When you see the message “deployed to Heroku” in the build log, click the “open app” button at the top of the page.
+
+### Version Control
+
+The site was built using temrinal commands to "commit" and "push" changes on to github:
+-git add . (To prepare files to add)
+-git commit -m "Some description of the commit" (To decscribe partiular commit/changes made)
+-git push (push the changes on to github)
