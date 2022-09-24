@@ -4,14 +4,16 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Image from "../images/Image";
+
 import appStyles from "../../App.module.css";
+import btnStyles from "../../styles/Buttons.module.css";
 
 import { useCurrUser } from "../../contexts/CurrUserContext";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useAccountData, useSetAccountData } from "../../contexts/AccountDataContext";
 import Profile from "../../components/Profile";
-import { Button, Media } from "react-bootstrap";
+import { Button, Card, Media } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreImages } from "../../utilities/utilities";
 import { AccountEditDropdown } from "../../components/Edit";
@@ -49,49 +51,56 @@ function AccountPage() {
 
   const mainAccount = (
     <>
-    {account?.is_owner && <AccountEditDropdown id={account?.id} />}
-      <Row noGutters className="px-3 text-center">
-        <Col lg={3} className="text-lg-left">
-            <Media>
-                <Profile src={currUser?.account_image} height={200}/>
+    <Card rounded>
+      <Card.Body>
+      <Media className="align-items-center justify-content-between">
+            <Container>
+                <Row>
+                    <Col>
+                      <Media>
+                          <Profile src={currUser?.account_image} height={200}/>
+                      </Media>
+                    </Col>
+                    <Col l={8}>  
+                      <h3 className="m-2">{account?.owner}</h3>
+                      <hr />
+                      <p>Imges: <span>{account?.images_count}</span></p>
+                      <p>Followers: <span>{account?.followers_count}</span></p>
+                      <p>Following: <span>{account?.following_count}</span></p>
+
+                    </Col>
+                    <Col l={2}>
+                        <div className="me-3">
+                        {account?.is_owner && <AccountEditDropdown id={account?.id} />}
+                        </div>
+                        <br></br>
+                        <br></br>
+                        <br></br>
+                            <Col lg={3} className="text-lg-right">
+                            {currUser && !is_owner && 
+                            (account?.following_id ? (
+                              <Button className={btnStyles.SmallButton}
+                              onClick={() => handleUnFollow(account)}>Unfollow</Button>
+                            ) : (
+                              <Button className={btnStyles.SmallButton}
+                              onClick={() => handleFollow(account)}>Follow</Button>)
+                              )}
+                            </Col>
+                        <br></br>
+                        <p>Curent weight: <span>{account?.current_weight}</span></p>
+                        <p>Goal weight: <span>{account?.goal_weight}</span></p>
+                    </Col>     
+                </Row>
+                <hr />
+                <Row>
+                  <Col className="p-3">
+                      <p>About: <span>{account?.content}</span></p>
+                  </Col>
+                </Row>
+            </Container>
             </Media>
-        </Col>
-        <Col lg={6}>
-          <h3 className="m-2">{account?.owner}</h3>
-          <Row>
-            <Col>
-               <p>Imges: <span>{account?.images_count}</span></p>
-            </Col>
-            <Col>
-               <p>Followers: <span>{account?.followers_count}</span></p>
-            </Col>
-            <Col>
-               <p>Following: <span>{account?.following_count}</span></p>
-            </Col>
-          </Row>
-          <>
-          <Row>
-            <Col>
-              <p>Curent weight: <span>{account?.current_weight}</span></p>
-            </Col>
-            <Col>
-              <p>Goal weight: <span>{account?.goal_weight}</span></p>
-            </Col>
-          </Row>
-          </>
-        </Col>
-        <Col lg={3} className="text-lg-right">
-           {currUser && !is_owner && 
-           (account?.following_id ? (
-            <Button onClick={() => handleUnFollow(account)}>Unfollow</Button>
-           ) : (
-            <Button onClick={() => handleFollow(account)}>Follow</Button>)
-            )}
-        </Col>
-        <Col className="p-3">
-          <p>About: <span>{account?.content}</span></p>
-        </Col>
-      </Row>
+      </Card.Body>
+    </Card>
     </>
   );
 
@@ -114,7 +123,7 @@ function AccountPage() {
            
             ) : (
               <Container>
-                  <p>nothing images yet</p>
+                  <p>This user hasn't posted images yet..</p>
               </Container>
             )}
         </Container>
@@ -123,8 +132,8 @@ function AccountPage() {
   );
 
   return (
-    <Row>
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
+    <Row className="justify-content-lg-center">
+      <Col lg={8}>
         <Container className={appStyles.Content}>
           {loaded ? (
             <>
