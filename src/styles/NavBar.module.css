@@ -6,12 +6,11 @@
 .NavLink {
     padding: 10px;
     color: #545454;
-    margin-top: 12px;
 }
 
-.NavLink > i {
+/* .NavLink > i {
     margin-top: 12px;
-}
+} */
 
 .NavLink:hover {
     color: #1bc5d7;

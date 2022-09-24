@@ -74,13 +74,12 @@ function ImagesPage({ message, filter = "" }) {
               />
             ) : (
               <Container>
-                  <p message={message}>nothing found</p>
+                  <p message={message}>Follow a user or give some kudos!</p>
               </Container>
             )}
           </>
         ) : (
           <Container>
-            spinning
           </Container>
         )}
       </Col>
