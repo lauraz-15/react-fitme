@@ -9,3 +9,12 @@
 .Button:hover {
     background-color: #1AC8DB;
 }
+
+.SmallButton {
+    background-color: #FAD02C;
+    width: 30%;
+    color: #545454;
+    border: 1px solid #1AC8DB;
+    border-radius: 10px;
+    margin-right: 0px;
+}

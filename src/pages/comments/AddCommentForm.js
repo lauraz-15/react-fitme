@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 
 import Profile from "../../components/Profile";
 import { axiosRes } from "../../api/axiosDefaults";
-
+import btnStyles from "../../styles/Buttons.module.css";
 
 function AddCommentForm(props) {
   const { image, setImage, setComments, accountImage, account_id } = props;
@@ -55,8 +55,9 @@ function AddCommentForm(props) {
               rows={2}/>
         </InputGroup>
       </Form.Group>
-      <button disabled={!text.trim()} type="submit">
-        Publish
+      <button className={btnStyles.SmallButton}
+      disabled={!text.trim()} type="submit">
+        Post
       </button>
     </Form>
   );

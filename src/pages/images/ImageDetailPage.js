@@ -36,7 +36,7 @@ function ImageDetailPage() {
     }, [id]);
     
     return (
-        <Row className="h-100">
+        <Row className="h-100 justify-content-lg-center">
           <Col className="py-2 p-0 p-lg-2" lg={8}>
             <Image {...image.results[0]} setImages={setImage} imagePage/>
             <Container className={appStyles.Content}>
