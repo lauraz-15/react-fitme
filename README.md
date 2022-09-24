@@ -247,24 +247,25 @@ Project Goal: #4
 
 ### FrontEnd Libraries
 
-[React] Used as the main Frontend lbrary to build the application
-[ReactBootstrap] Used to add structure and style to Components, such as the nav bar, forms etc.
-[Axios](https://axios-http.com/docs/intro) Used for API requests
-[jwt-decode](https://www.npmjs.com/package/jwt-decode) used to set up access tokens
-[React Infite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component) used to implement infinite scroll option for image feed pages
-[React Router Dom](https://v5.reactrouter.com/web/guides/quick-start) used for url links and pages
+- [React](https://reactjs.org/) Used as the main Frontend lbrary to build the application
+- [ReactBootstrap](https://react-bootstrap.github.io/) Used to add structure and style to Components, such as the nav bar, forms etc.
+- [Axios](https://axios-http.com/docs/intro) Used for API requests
+- [jwt-decode](https://www.npmjs.com/package/jwt-decode) used to set up access tokens
+- [React Infite Scroll](https://www.npmjs.com/package/react-infinite-scroll-component) used to implement infinite 
+scroll option for image feed pages
+- [React Router Dom](https://v5.reactrouter.com/web/guides/quick-start) used for url links and pages
 
 
 ### Other Technologies
 
-[Canva](https://www.canva.com/en_gb/) Used fro logo design
-[Google Fonts](https://fonts.google.com/) Used to import the fonts for the page
-[Colorhunt.co](https://colorhunt.co/palette/93b5c6c9ccd5e4d8dcffe3e3) Used to generate a color pallette
-[Favicon.io](https://favicon.io/) Used to create a favicon
-[Github](https://github.com/) Used to build and deploy the site
-[Git](https://git-scm.com/) Used for version control to commit and push code on github raspitory
-[Google Developer Tools](https://developer.chrome.com/docs/devtools/) was used to test responsivness and debug the code
-[Font Awesome](https://fontawesome.com/) Used to add icons
-[Balsamiq](https://balsamiq.com/) Used to create wireframes
+- [Canva](https://www.canva.com/en_gb/) Used fro logo design
+- [Google Fonts](https://fonts.google.com/) Used to import the fonts for the page
+- [Colorhunt.co](https://colorhunt.co/palette/93b5c6c9ccd5e4d8dcffe3e3) Used to generate a color pallette
+- [Favicon.io](https://favicon.io/) Used to create a favicon
+- [Github](https://github.com/) Used to build and deploy the site
+- [Git](https://git-scm.com/) Used for version control to commit and push code on github raspitory
+- [Google Developer Tools](https://developer.chrome.com/docs/devtools/) was used to test responsivness and debug the code
+- [Font Awesome](https://fontawesome.com/) Used to add icons
+- [Balsamiq](https://balsamiq.com/) Used to create wireframes
 
 
