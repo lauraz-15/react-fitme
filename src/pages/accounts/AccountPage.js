@@ -11,122 +11,149 @@ import btnStyles from "../../styles/Buttons.module.css";
 import { useCurrUser } from "../../contexts/CurrUserContext";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
-import { useAccountData, useSetAccountData } from "../../contexts/AccountDataContext";
+import {
+  useAccountData,
+  useSetAccountData,
+} from "../../contexts/AccountDataContext";
 import Profile from "../../components/Profile";
 import { Button, Card, Media } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreImages } from "../../utilities/utilities";
 import { AccountEditDropdown } from "../../components/Edit";
 
+/**
+ * Render Accounts page
+ */
 function AccountPage() {
   const [loaded, setLoaded] = useState(false);
   const currUser = useCurrUser();
-  const {id} = useParams();
-  const {setAccountData, handleFollow, handleUnFollow} = useSetAccountData();
-  const {pageAccount} = useAccountData();
+  const { id } = useParams();
+  const { setAccountData, handleFollow, handleUnFollow } = useSetAccountData();
+  const { pageAccount } = useAccountData();
   const [account] = pageAccount.results;
   const is_owner = currUser?.username === account?.owner;
   const [images, setImages] = useState({ results: [] });
 
+  /**
+   * Get data abput the acccunt owner from the api
+   * Get account ownders images
+   * dispaly data and images to the frontend
+   */
   useEffect(() => {
     const fetchInfo = async () => {
-        try {
-            const [{data: pageAccount}, {data: images}] = 
-            await Promise.all([
-                axiosReq.get(`/accounts/${id}/`),
-                axiosReq.get(`/images/?owner__account=${id}`),
-            ])
-            setAccountData(prevState => ({
-                ...prevState,
-                pageAccount: {results: [pageAccount]} 
-            }))
-            setImages(images);
-            setLoaded(true);
-        } catch(err) {
-            console.log(err)
-        }
-    }
-      fetchInfo()
-  }, [id, setAccountData])
+      try {
+        const [{ data: pageAccount }, { data: images }] = await Promise.all([
+          axiosReq.get(`/accounts/${id}/`),
+          axiosReq.get(`/images/?owner__account=${id}`),
+        ]);
+        setAccountData((prevState) => ({
+          ...prevState,
+          pageAccount: { results: [pageAccount] },
+        }));
+        setImages(images);
+        setLoaded(true);
+      } catch (err) {}
+    };
+    fetchInfo();
+  }, [id, setAccountData]);
 
   const mainAccount = (
     <>
-    <Card rounded>
-      <Card.Body>
-      <Media className="align-items-center justify-content-between">
+      <Card rounded>
+        <Card.Body>
+          <Media className="align-items-center justify-content-between">
             <Container>
-                <Row>
-                    <Col>
-                      <Media>
-                          <Profile src={currUser?.account_image} height={200}/>
-                      </Media>
-                    </Col>
-                    <Col l={8}>  
-                      <h3 className="m-2">{account?.owner}</h3>
-                      <hr />
-                      <p>Imges: <span>{account?.images_count}</span></p>
-                      <p>Followers: <span>{account?.followers_count}</span></p>
-                      <p>Following: <span>{account?.following_count}</span></p>
-
-                    </Col>
-                    <Col l={2}>
-                        <div className="me-3">
-                        {account?.is_owner && <AccountEditDropdown id={account?.id} />}
-                        </div>
-                        <br></br>
-                        <br></br>
-                        <br></br>
-                            <Col lg={3} className="text-lg-right">
-                            {currUser && !is_owner && 
-                            (account?.following_id ? (
-                              <Button className={btnStyles.SmallButton}
-                              onClick={() => handleUnFollow(account)}>Unfollow</Button>
-                            ) : (
-                              <Button className={btnStyles.SmallButton}
-                              onClick={() => handleFollow(account)}>Follow</Button>)
-                              )}
-                            </Col>
-                        <br></br>
-                        <p>Curent weight: <span>{account?.current_weight}</span></p>
-                        <p>Goal weight: <span>{account?.goal_weight}</span></p>
-                    </Col>     
-                </Row>
-                <hr />
-                <Row>
-                  <Col className="p-3">
-                      <p>About: <span>{account?.content}</span></p>
+              <Row>
+                <Col>
+                  <Media>
+                    <Profile src={currUser?.account_image} height={200} />
+                  </Media>
+                </Col>
+                <Col l={8}>
+                  <h3 className="m-2">{account?.owner}</h3>
+                  <hr />
+                  <p>
+                    Imges: <span>{account?.images_count}</span>
+                  </p>
+                  <p>
+                    Followers: <span>{account?.followers_count}</span>
+                  </p>
+                  <p>
+                    Following: <span>{account?.following_count}</span>
+                  </p>
+                </Col>
+                <Col l={2}>
+                  <div className="me-3">
+                    {account?.is_owner && (
+                      <AccountEditDropdown id={account?.id} />
+                    )}
+                  </div>
+                  <br></br>
+                  <br></br>
+                  <br></br>
+                  <Col lg={3} className="text-lg-right">
+                    {currUser &&
+                      !is_owner &&
+                      (account?.following_id ? (
+                        <Button
+                          className={btnStyles.SmallButton}
+                          onClick={() => handleUnFollow(account)}
+                        >
+                          Unfollow
+                        </Button>
+                      ) : (
+                        <Button
+                          className={btnStyles.SmallButton}
+                          onClick={() => handleFollow(account)}
+                        >
+                          Follow
+                        </Button>
+                      ))}
                   </Col>
-                </Row>
+                  <br></br>
+                  <p>
+                    Curent weight: <span>{account?.current_weight}</span>
+                  </p>
+                  <p>
+                    Goal weight: <span>{account?.goal_weight}</span>
+                  </p>
+                </Col>
+              </Row>
+              <hr />
+              <Row>
+                <Col className="p-3">
+                  <p>
+                    About: <span>{account?.content}</span>
+                  </p>
+                </Col>
+              </Row>
             </Container>
-            </Media>
-      </Card.Body>
-    </Card>
+          </Media>
+        </Card.Body>
+      </Card>
     </>
   );
 
   const mainAccountImages = (
     <>
       <hr />
-        <Container>
+      <Container>
         {images.results.length ? (
-              <InfiniteScroll
-                children={
-                  images.results.map((image) => (
-                    <Image key={image.id} {...image} setImages={setImages} />
-                  ))
-                }
-                dataLength={images.results.length}
-                loader={"spinning"}
-                hasMore={!!images.next}
-                next={() => fetchMoreImages(images, setImages)}
-              />
-           
-            ) : (
-              <Container>
-                  <p>This user hasn't posted images yet..</p>
-              </Container>
-            )}
-        </Container>
+          <InfiniteScroll
+            children={images.results.map((image) => (
+              <Image key={image.id} {...image} setImages={setImages} />
+            ))}
+            dataLength={images.results.length}
+            loader={"spinning"}
+            hasMore={!!images.next}
+            next={() => fetchMoreImages(images, setImages)}
+          />
+        ) : (
+          <Container>
+            <p>This user hasn't posted images yet..</p>
+          </Container>
+        )}
+      </Container>
       <hr />
     </>
   );

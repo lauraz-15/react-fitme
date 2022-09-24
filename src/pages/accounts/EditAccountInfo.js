@@ -12,7 +12,6 @@ import { useHistory, useParams } from "react-router-dom";
 import { useCurrUser, useSetCurrUser } from "../../contexts/CurrUserContext";
 import { axiosReq } from "../../api/axiosDefaults";
 
-
 const EditAccountInfo = () => {
   const currUser = useCurrUser();
   const setCurrUser = useSetCurrUser();
@@ -31,6 +30,10 @@ const EditAccountInfo = () => {
 
   const [errors, setErrors] = useState({});
 
+  /**
+   * Check if user is the owner of the account
+   * Populate the existing data from the api
+   */
   useEffect(() => {
     const handleMount = async () => {
       if (currUser?.account_id?.toString() === id) {
@@ -39,7 +42,6 @@ const EditAccountInfo = () => {
           const { current_weight, goal_weight, content, image } = data;
           setAccountInfo({ current_weight, goal_weight, content, image });
         } catch (err) {
-          console.log(err);
           history.push("/");
         }
       } else {
@@ -50,6 +52,9 @@ const EditAccountInfo = () => {
     handleMount();
   }, [currUser, history, id]);
 
+  /**
+   * Get the information from the user inputs
+   */
   const handleChange = (event) => {
     setAccountInfo({
       ...accountInfo,
@@ -57,6 +62,9 @@ const EditAccountInfo = () => {
     });
   };
 
+  /**
+   * Post the information to the api
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     const newData = new FormData();
@@ -65,7 +73,7 @@ const EditAccountInfo = () => {
     newData.append("content", content);
 
     if (photoUpload?.current?.files[0]) {
-        newData.append("image", photoUpload?.current?.files[0]);
+      newData.append("image", photoUpload?.current?.files[0]);
     }
 
     try {
@@ -76,7 +84,6 @@ const EditAccountInfo = () => {
       }));
       history.goBack();
     } catch (err) {
-      console.log(err);
       setErrors(err.response?.data);
     }
   };
@@ -85,19 +92,33 @@ const EditAccountInfo = () => {
     <>
       <Form.Group>
         <Form.Label>Current weight</Form.Label>
-        <Form.Control as="input" value={current_weight} onChange={handleChange}
-          name="current_weight" rows={7}/>
+        <Form.Control
+          as="input"
+          value={current_weight}
+          onChange={handleChange}
+          name="current_weight"
+          rows={7}
+        />
       </Form.Group>
       <Form.Group>
         <Form.Label>Goal weight</Form.Label>
-        <Form.Control as="input" value={goal_weight} onChange={handleChange}
-          name="goal_weight" rows={7}/>
+        <Form.Control
+          as="input"
+          value={goal_weight}
+          onChange={handleChange}
+          name="goal_weight"
+          rows={7}
+        />
       </Form.Group>
       <Form.Group>
-        
         <Form.Label>About</Form.Label>
-        <Form.Control as="textarea" value={content} onChange={handleChange}
-          name="content" rows={7}/>
+        <Form.Control
+          as="textarea"
+          value={content}
+          onChange={handleChange}
+          name="content"
+          rows={7}
+        />
       </Form.Group>
 
       {errors?.content?.map((message, idx) => (
@@ -105,13 +126,8 @@ const EditAccountInfo = () => {
           {message}
         </Alert>
       ))}
-      <Button 
-        onClick={() => history.goBack()}>
-        cancel
-      </Button>
-      <Button type="submit">
-        save
-      </Button>
+      <Button onClick={() => history.goBack()}>cancel</Button>
+      <Button type="submit">save</Button>
     </>
   );
 
@@ -132,13 +148,13 @@ const EditAccountInfo = () => {
                 </Alert>
               ))}
               <div>
-                <Form.Label htmlFor="image-upload">
-                  Change the image
-                </Form.Label>
+                <Form.Label htmlFor="image-upload">Change the image</Form.Label>
               </div>
               <Form.File
-                id="image-upload" ref={photoUpload}
-                accept="image/*" onChange={(e) => {
+                id="image-upload"
+                ref={photoUpload}
+                accept="image/*"
+                onChange={(e) => {
                   if (e.target.files.length) {
                     setAccountInfo({
                       ...accountInfo,

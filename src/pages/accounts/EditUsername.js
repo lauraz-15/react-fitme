@@ -11,9 +11,10 @@ import { useCurrUser, useSetCurrUser } from "../../contexts/CurrUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useHistory, useParams } from "react-router-dom";
 
-
+/**
+ * Render Edit username form
+ */
 const EditUsername = () => {
-
   const [username, setUsername] = useState("");
   const [errors, setErrors] = useState({});
 
@@ -23,6 +24,9 @@ const EditUsername = () => {
   const currUser = useCurrUser();
   const setCurrUser = useSetCurrUser();
 
+  /**
+   * Redirect the user if they are trying to access the page for another account
+   */
   useEffect(() => {
     if (currUser?.account_id?.toString() === id) {
       setUsername(currUser.username);
@@ -31,6 +35,10 @@ const EditUsername = () => {
     }
   }, [currUser, history, id]);
 
+  /**
+   * Post the data on the Api
+   * Redirect the user to the previous page
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -43,7 +51,6 @@ const EditUsername = () => {
       }));
       history.goBack();
     } catch (err) {
-      console.log(err);
       setErrors(err.response?.data);
     }
   };
@@ -56,20 +63,19 @@ const EditUsername = () => {
             <Form.Group>
               <Form.Label>Edit My Username</Form.Label>
               <Form.Control
-                placeholder="username" type="text" value={username}
-                onChange={(event) => setUsername(event.target.value)}/>
+                placeholder="username"
+                type="text"
+                value={username}
+                onChange={(event) => setUsername(event.target.value)}
+              />
             </Form.Group>
             {errors?.username?.map((message, idx) => (
               <Alert key={idx} variant="warning">
                 {message}
               </Alert>
             ))}
-            <Button onClick={() => history.goBack()}>
-              Cancel
-            </Button>
-            <Button type="submit">
-              Update
-            </Button>
+            <Button onClick={() => history.goBack()}>Cancel</Button>
+            <Button type="submit">Update</Button>
           </Form>
         </Container>
       </Col>
