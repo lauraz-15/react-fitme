@@ -7,6 +7,9 @@ import Profile from "../../components/Profile";
 import { axiosRes } from "../../api/axiosDefaults";
 import btnStyles from "../../styles/Buttons.module.css";
 
+/**
+ * Render create a comment form
+ */
 function AddCommentForm(props) {
   const { image, setImage, setComments, accountImage, account_id } = props;
   const [text, setText] = useState("");
@@ -15,6 +18,11 @@ function AddCommentForm(props) {
     setText(event.target.value);
   };
 
+  /**
+   * Add comment on the api
+   * Increment comment count by one for the related image
+   * Add newly created comment to the related image on the frontend
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -35,28 +43,30 @@ function AddCommentForm(props) {
         ],
       }));
       setText("");
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
         <InputGroup>
-            <Link to={`/accounts/${account_id}`}>
-              <Profile src={accountImage} />
-            </Link>
-            <Form.Control
-              placeholder="Type your comment here...."
-              as="textarea"
-              value={text}
-              onChange={handleChange}
-              rows={2}/>
+          <Link to={`/accounts/${account_id}`}>
+            <Profile src={accountImage} />
+          </Link>
+          <Form.Control
+            placeholder="Type your comment here...."
+            as="textarea"
+            value={text}
+            onChange={handleChange}
+            rows={2}
+          />
         </InputGroup>
       </Form.Group>
-      <button className={btnStyles.SmallButton}
-      disabled={!text.trim()} type="submit">
+      <button
+        className={btnStyles.SmallButton}
+        disabled={!text.trim()}
+        type="submit"
+      >
         Post
       </button>
     </Form>
