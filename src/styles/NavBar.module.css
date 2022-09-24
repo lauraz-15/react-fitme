@@ -6,14 +6,18 @@
 .NavLink {
     padding: 10px;
     color: #545454;
-    margin-top: 30px;
+    margin-top: 12px;
+}
+
+.NavLink > i {
+    margin-top: 12px;
 }
 
 .NavLink:hover {
-    color: #159EAD;
+    color: #1bc5d7;
     text-decoration: none;
 }
 
-.Active {
-    color: #a0db17;
+.Active > i {
+    color: #1bc5d7;
 }

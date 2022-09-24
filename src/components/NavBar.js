@@ -38,7 +38,6 @@ import { removeTokenStamp } from '../utilities/utilities';
     </>
   )
 
-
   const authenticatedView = (
         <div>
           <NavLink to="/main" exact className={styles.NavLink} 
@@ -84,3 +83,4 @@ import { removeTokenStamp } from '../utilities/utilities';
 }
 
 export default NavBar
+
