@@ -1,4 +1,4 @@
-import React, { useState, expanded } from 'react'
+import React from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 import logo from '../assets/logo-resized.png'
 import styles from '../styles/NavBar.module.css'
@@ -41,24 +41,25 @@ import { removeTokenStamp } from '../utilities/utilities';
 
   const authenticatedView = (
         <div>
-        <NavLink to="/main" exact className={styles.NavLink} activeClassName={styles.Active}>
-        <i className="fa-solid fa-house"></i>
-        </NavLink>
-        <NavLink to="/images/add"  className={styles.NavLink} activeClassName={styles.Active}>
-        <i className="fa-solid fa-square-plus"></i>
-        </NavLink>
-        <NavLink to="/kudos"  className={styles.NavLink} activeClassName={styles.Active}>
-        <i className="fa-solid fa-thumbs-up"></i>
-        </NavLink>
-        <NavLink to="/" 
-        className={styles.NavLink}
-        onClick={handleLogOut}>
-        <i className="fa-solid fa-person-walking-arrow-right"></i>
-        </NavLink>
-        <NavLink to={`/accounts/${currUser?.account_id}`}
-        className={styles.NavLink}>
-        <Profile src={currUser?.account_image}/>
-        </NavLink>
+          <NavLink to="/main" exact className={styles.NavLink} 
+          activeClassName={styles.Active}>
+            <i className="fa-solid fa-house"></i>
+          </NavLink>
+          <NavLink to="/images/add"  className={styles.NavLink} activeClassName={styles.Active}>
+            <i className="fa-solid fa-square-plus"></i>
+          </NavLink>
+          <NavLink to="/kudos"  className={styles.NavLink} activeClassName={styles.Active}>
+            <i className="fa-solid fa-thumbs-up"></i>
+          </NavLink>
+          <NavLink to="/" 
+          className={styles.NavLink}
+          onClick={handleLogOut}>
+            <i className="fa-solid fa-person-walking-arrow-right"></i>
+          </NavLink>
+          <NavLink to={`/accounts/${currUser?.account_id}`}
+          className={styles.NavLink}>
+            <Profile src={currUser?.account_image}/>
+          </NavLink>
         </div>   
   )
 

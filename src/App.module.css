@@ -11,13 +11,13 @@
 /* Icons */
 
 i {
-    color: #1AC8DB;
-    padding: 18px;
-    font-size: 2.3em;
+    color: #23a6b5;
+    padding: 10px;
+    font-size: 1.8rem;
   }
 
 i:hover {
-    color: #159EAD;
+    color: #1b8089;
     transition: color ease-in-out 0.4s;
   }
 
