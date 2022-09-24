@@ -42,6 +42,7 @@ Link to code on github for the [github rapitory for API](https://github.com/laur
   + [Other Technologies](#other-technologues "Other Technologies")
 + [Deployment](#deployment "Deployment")
   + [Version Control](#version-control "Version Control")
+  + [API Connection](#api-connection "API Connection")
 + [Credits](#credits "Credits")
 
 
@@ -290,15 +291,27 @@ npx create-react-app . --template git+https://github.com/Code-Institute-Org/cra-
 8. Then scroll down the page and click on "Deploy Branch"
 9. Once the build is finished click on the button "Open App" to launch the live site
 
-Log in to heroku.com and open the dashboard for your react application (remember this is separate from the DRF application that runs your API)
-Select the “Deploy” tab in the dashboard
-Scroll down to the bottom and then select “Deploy Branch”
-Wait for your build to complete (you can click “view build log” to watch the process in a larger window)
-When you see the message “deployed to Heroku” in the build log, click the “open app” button at the top of the page.
-
 ### Version Control
 
-The site was built using temrinal commands to "commit" and "push" changes on to github:
--git add . (To prepare files to add)
--git commit -m "Some description of the commit" (To decscribe partiular commit/changes made)
--git push (push the changes on to github)
+The site was built using terminal commands to "commit" and "push" changes on to github:
+- git add . (To prepare files to add)
+- git commit -m "Some description of the commit" (To decscribe partiular commit/changes made)
+- git push (push the changes on to github)
+
+### API Connection
+
+In order to connect the frontend application to the api backend I have followed the steps below:
+1. Logged on to Heroku and find the backend application (drf-fitme)
+2. Go to settings tab and Config Vars
+3. Enter the key value pairs as follows:
+
+Deployed link for the front end application:
+CLIENT_ORIGIN(key) - https://react-fitme.herokuapp.com (value)
+
+Development link on gitpod interface:
+CLIENT_ORIGIN_DEV(key) - https://8000-lauraz15-reactfitme-ylzvbqtzz78.ws-eu64.gitpod.io (value)
+
+4. Make sure the trailling slash at the end has been removed at the end of the link and click save
+5. Add Axios defaults file on the Frontend application, and install axios.[See the file here](https://github.com/lauraz-15/react-fitme/blob/main/src/api/axiosDefaults.js)
+
+
