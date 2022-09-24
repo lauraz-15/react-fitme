@@ -88,7 +88,9 @@ const Image = (props) => {
             <Container>
                 <Row>
                     <Col>
-                        <Profile src={account_image} height={60}/> 
+                        <Link to={`/accounts/${account_id}`}>
+                            <Profile src={account_image} height={60}/> 
+                        </Link>
                     </Col>
                     <Col xs={8}>  
                         <span className={styles.Owner}>
@@ -104,14 +106,6 @@ const Image = (props) => {
                     </Col>
                 </Row>
             </Container>
-             
-                  
-
-          
-
-       
-           
-
             </Media>
         </Card.Body>
         
