@@ -231,6 +231,16 @@ Project Goal: #4
 
 Project Goal: #4
 
+# Components
+
+One of the great benefits of using React is that application acn be built using reusable components. 
+FITME Applucation has numerous reusable Components, as for example:
+
+- Edit.js Dropdown option to provide a selection of options that are otherwise hidden until the button clicked
+- Profile.js Profile image organised and styled so this component can be used widely on the application, for xample Comment section to show who has written the comment or the navbar to show the loggen in user etc.
+- PageNotFound.js This component will be presented to any invalid link that user tried to enter
+- NavBar.js  Component is reused on each page of the application
+- Imge.js Component sets the basic structure and style of each image, which then is used in other Image related Components
 
 
 
@@ -313,5 +323,9 @@ CLIENT_ORIGIN_DEV(key) - https://8000-lauraz15-reactfitme-ylzvbqtzz78.ws-eu64.gi
 
 4. Make sure the trailling slash at the end has been removed at the end of the link and click save
 5. Add Axios defaults file on the Frontend application, and install axios.[See the file here](https://github.com/lauraz-15/react-fitme/blob/main/src/api/axiosDefaults.js)
+
+# Credits
+
+Moment Walkthrough project was the inspiration for this application.
 
 
