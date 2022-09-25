@@ -238,6 +238,24 @@ Project Goal: #4
 
 ### Wireframes
 
+Design of the website was intended to be simple, based on Ludwig Mies van der Rohe's principle in describing the minimalist aesthetic that less is more. 
+Only the necessary elements were included in the plan.
+
+Non Authenticated view
+![Non Authenticated view](src/assets/readme/non-auth.png)
+
+Authenticated view
+![Authenticated view](src/assets/readme/auth-view.png)
+
+Add Image page
+![Add Image Page](src/assets/readme/add-image.png)
+
+Sign Up Page
+![Sign Up](src/assets/readme/sign-up.png)
+
+Account page
+![Account page](src/assets/readme/account-page.png)
+
 ### Design diagram
 
 The design diagram was created at the begining of the project to determine what pages will be visible when the user has been authenicated and which menu items would be hidden from the view otherwise. Additionally at that point it was determined what content will be availbale on each menu item.
