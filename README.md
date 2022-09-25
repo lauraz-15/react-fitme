@@ -24,6 +24,7 @@ Link to code on github for the [github rapitory for API](https://github.com/laur
   + [Visitor stories](#visitor-stories "Visitor stories")
 + [Design](#design "Design")
   + [Wireframes](#wireframes "Wireframes")
+  + [Design diagram](#design-diagram "Design diagram")
   + [Typography](#typography "Typography")
   + [Colour Scheme](#colour-scheme "Colour Scheme")
   + [Logo](#logo "logo")
@@ -237,6 +238,13 @@ Project Goal: #4
 
 ### Wireframes
 
+### Design diagram
+
+The design diagram was created at the begining of the project to determine what pages will be visible when the user has been authenicated and which menu items would be hidden from the view otherwise. Additionally at that point it was determined what content will be availbale on each menu item.
+Over the time the diagram was used for reference and the app was build based on that.
+
+![Design diagram](src/assets/readme/design-diagram.png)
+
 ### Typography
 
 The main font for the site is Montserrat. The choice for this font was based on the fact that this is well tested font that works well on the websites.
@@ -311,6 +319,7 @@ scroll option for image feed pages
 - [Google Developer Tools](https://developer.chrome.com/docs/devtools/) was used to test responsivness and debug the code
 - [Font Awesome](https://fontawesome.com/) Used to add icons
 - [Balsamiq](https://balsamiq.com/) Used to create wireframes
+- [App Creately](https://app.creately.com/d/4rN8HqyKO2f/edit/s/YHf8qKnHqG4) Used to create a design diagram.
 
 
 # Deployment
