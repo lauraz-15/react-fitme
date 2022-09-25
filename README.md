@@ -237,6 +237,7 @@ One of the great benefits of using React is that application acn be built using 
 FITME Applucation has numerous reusable Components, as for example:
 
 - Edit.js Dropdown option to provide a selection of options that are otherwise hidden until the button clicked
+This component is reused for emages and comments and also for edit account dropdown.
 - Profile.js Profile image organised and styled so this component can be used widely on the application, for xample Comment section to show who has written the comment or the navbar to show the loggen in user etc.
 - PageNotFound.js This component will be presented to any invalid link that user tried to enter
 - NavBar.js  Component is reused on each page of the application

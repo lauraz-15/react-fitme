@@ -35,7 +35,7 @@ function AccountPage() {
   const [images, setImages] = useState({ results: [] });
 
   /**
-   * Get data abput the acccunt owner from the api
+   * Get data about the acccunt owner from the api
    * Get account ownders images
    * dispaly data and images to the frontend
    */

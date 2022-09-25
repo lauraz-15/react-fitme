@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
+/**
+ * Close the burger menu on mobile devices when the user clicks on the menu item
+ * Close the burger menu on mobile devices when the user clicks outside of the menu that is opened
+ */
 const Toggle = () => {
   const [opened, setOpened] = useState(false);
   const ref = useRef(null);
