@@ -33,6 +33,7 @@ Link to code on github for the [github rapitory for API](https://github.com/laur
 + [CRUD](#crud "CRUD - Create Read Update Delete")
 + [Components](#oomponents "Components")
 + [Testing](#testing "Testing")
+  + [Accessability](#accessability "Accessability")
   + [Validator Testing](#validator-testing "Validator Testing")
   + [Manual Testing](#manual-testing "Manual Testing")
   + [Unfixed Bugs](#unfixed-bugs "Unfixed Bugs")
@@ -243,7 +244,14 @@ This component is reused for emages and comments and also for edit account dropd
 - NavBar.js  Component is reused on each page of the application
 - Imge.js Component sets the basic structure and style of each image, which then is used in other Image related Components
 
+# Testing
 
+### Accessability
+
+Lighouse on Google Developer tools was used to test the accessability on all pages. Some style changes were added in order to pass the test on 100%.
+Additionally some alt tags and aria labels were added. All pages passes accessability guidlines 100%
+
+![Accessability](src/assets/readme/accessability.png)
 
 # Technologies
 
