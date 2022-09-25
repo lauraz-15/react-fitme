@@ -9,10 +9,6 @@
     color:  #1a7983;
 }
 
-/* .NavLink > i {
-    margin-top: 12px;
-} */
-
 .NavLink:hover {
     color: #1bc5d7;
     text-decoration: none;
@@ -21,9 +17,4 @@
 .Active > i {
     color: #FAD02C
 }
-
-/* .Active {
-    color: #545454;
-} */
-
 

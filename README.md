@@ -232,6 +232,30 @@ Project Goal: #4
 
 Project Goal: #4
 
+
+# Design
+
+### Wireframes
+
+### Typography
+
+The main font for the site is Montserrat. The choice for this font was based on the fact that this is well tested font that works well on the websites.
+The font was imported from [Google fonts](https://fonts.google.com/specimen/Montserrat)
+
+### Color Palette
+
+The following color pallette was used accross the site that is mainly taken from the logo colors.
+This is to ensure the consistent feel about the brand of the site on all pages.
+
+![Color palette](src/assets/readme/color-palette.png)
+
+### Logo
+
+Logo was created using Canva, few versions were made until the final choice was made mainly because of the simplicity of it which coralates to the simple feel of the website.
+
+![Logo](src/assets/readme/logo-readme.png)
+
+
 # Components
 
 One of the great benefits of using React is that application acn be built using reusable components. 
