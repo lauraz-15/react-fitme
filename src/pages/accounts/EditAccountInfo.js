@@ -13,6 +13,8 @@ import { useCurrUser, useSetCurrUser } from "../../contexts/CurrUserContext";
 import { axiosReq } from "../../api/axiosDefaults";
 import { Card } from "react-bootstrap";
 
+import btnStyles from "../../styles/Buttons.module.css";
+
 const EditAccountInfo = () => {
   const currUser = useCurrUser();
   const setCurrUser = useSetCurrUser();
@@ -127,8 +129,8 @@ const EditAccountInfo = () => {
           {message}
         </Alert>
       ))}
-      <Button onClick={() => history.goBack()}>cancel</Button>
-      <Button type="submit">save</Button>
+      <Button className={btnStyles.SmallButton} onClick={() => history.goBack()}>Cancel</Button>
+      <Button className={btnStyles.SmallButton} type="submit">Save</Button>
     </>
   );
 
@@ -136,7 +138,9 @@ const EditAccountInfo = () => {
     <Row className="h-100 justify-content-lg-center">
     <Col lg={8}>
     <Card>
+        <Row className="justify-content-lg-center m-3">
         <h1>Edit Account Info</h1>
+        </Row>
       <Card.Body>
         <Form onSubmit={handleSubmit}>
           <Row className="justify-content-lg-center">
