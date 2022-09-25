@@ -162,7 +162,7 @@ const Image = (props) => {
               </OverlayTrigger>
             )}
             {kudos_count}
-            <Link to={`/images/${id}`}>
+            <Link to={`/images/${id}`} aria-label="Add comment link">
               <i className="fa-regular fa-comment" />
             </Link>
             {comments_count}

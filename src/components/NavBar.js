@@ -65,6 +65,7 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
+        My Feed
         <i className="fa-solid fa-house"></i>
       </NavLink>
       <NavLink
@@ -72,6 +73,7 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
+        Add Image
         <i className="fa-solid fa-square-plus"></i>
       </NavLink>
       <NavLink
@@ -79,9 +81,11 @@ const NavBar = () => {
         className={styles.NavLink}
         activeClassName={styles.Active}
       >
+        Kudos
         <i className="fa-solid fa-thumbs-up"></i>
       </NavLink>
       <NavLink to="/" className={styles.NavLink} onClick={handleLogOut}>
+        Log Out
         <i className="fa-solid fa-person-walking-arrow-right"></i>
       </NavLink>
       <NavLink
@@ -96,7 +100,7 @@ const NavBar = () => {
   return (
     <Navbar expanded={opened} className={styles.NavBar} expand="md" fixed="top">
       <Container>
-        <NavLink to="/">
+        <NavLink to="/" aria-label="Home page">
           <Navbar.Brand>
             <img src={logo} height="60px" alt="site logo" />
           </Navbar.Brand>
