@@ -107,10 +107,11 @@ function EditImageForm() {
             <h1>Edit Image</h1>
             <Form onSubmit={handleSumbit}>
               <Form.Group>
-                <Form.Label className="d-none">Description</Form.Label>
-
+                <Form.Label className="d-none">Upload image</Form.Label>
                 <Form.File
                   accept="image/*"
+                  name="upload image"
+                  type="file"
                   id="exampleFormControlFile"
                   onChange={handlePicture}
                   ref={pictureUpload}
@@ -153,7 +154,7 @@ function EditImageForm() {
                 </Alert>
               ))}
               <figure>
-                <Image src={picture} rounded className={styles.Picture} />
+                <Image src={picture} rounded className={styles.Picture} alt={description} />
               </figure>
             </Form>
           </Col>
