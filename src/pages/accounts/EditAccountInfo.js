@@ -11,6 +11,7 @@ import Image from "react-bootstrap/Image";
 import { useHistory, useParams } from "react-router-dom";
 import { useCurrUser, useSetCurrUser } from "../../contexts/CurrUserContext";
 import { axiosReq } from "../../api/axiosDefaults";
+import { Card } from "react-bootstrap";
 
 const EditAccountInfo = () => {
   const currUser = useCurrUser();
@@ -132,45 +133,56 @@ const EditAccountInfo = () => {
   );
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Row>
-        <Col className="py-2 p-0 p-md-2 text-center" md={7} lg={6}>
-          <Container>
-            <Form.Group>
-              {image && (
-                <figure>
-                  <Image src={image} fluid />
-                </figure>
-              )}
-              {errors?.image?.map((message, idx) => (
-                <Alert variant="warning" key={idx}>
-                  {message}
-                </Alert>
-              ))}
-              <div>
-                <Form.Label htmlFor="image-upload">Change the image</Form.Label>
-              </div>
-              <Form.File
-                id="image-upload"
-                ref={photoUpload}
-                accept="image/*"
-                onChange={(e) => {
-                  if (e.target.files.length) {
-                    setAccountInfo({
-                      ...accountInfo,
-                      image: URL.createObjectURL(e.target.files[0]),
-                    });
-                  }
-                }}
-              />
-            </Form.Group>
-          </Container>
-        </Col>
-        <Col md={5} lg={6} className="d-none d-md-block p-0 p-md-2 text-center">
-          <Container>{infoFields}</Container>
-        </Col>
-      </Row>
-    </Form>
+    <Row className="h-100 justify-content-lg-center">
+    <Col lg={8}>
+    <Card>
+        <h1>Edit Account Info</h1>
+      <Card.Body>
+        <Form onSubmit={handleSubmit}>
+          <Row className="justify-content-lg-center">
+            <Col className="py-2 p-0 p-md-2 text-center" lg={6}>
+              <Container>
+                <Form.Group>
+                  {image && (
+                    <figure>
+                      <Image src={image} fluid />
+                    </figure>
+                  )}
+                  {errors?.image?.map((message, idx) => (
+                    <Alert variant="warning" key={idx}>
+                      {message}
+                    </Alert>
+                  ))}
+                  <div>
+                    <Form.Label htmlFor="image-upload">
+                      Change the image
+                    </Form.Label>
+                  </div>
+                  <Form.File
+                    id="image-upload"
+                    ref={photoUpload}
+                    accept="image/*"
+                    onChange={(e) => {
+                      if (e.target.files.length) {
+                        setAccountInfo({
+                          ...accountInfo,
+                          image: URL.createObjectURL(e.target.files[0]),
+                        });
+                      }
+                    }}
+                  />
+                </Form.Group>
+              </Container>
+            </Col>
+            <Col lg={6} className="d-none d-md-block p-0 p-md-2 text-center">
+              <Container>{infoFields}</Container>
+            </Col>
+          </Row>
+        </Form>
+      </Card.Body>
+    </Card>
+    </Col>
+    </Row>
   );
 };
 
