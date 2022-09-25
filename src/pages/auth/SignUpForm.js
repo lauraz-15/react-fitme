@@ -124,7 +124,7 @@ const SignUpForm = () => {
               ))}
             </Form>
             <div className={styles.LogIn}>
-              <h4>Registered users, please log in here:</h4>
+              <p>Registered users, please log in here:</p>
               <Link to="/login">
                 <Button className={btnStyles.Button}>Log In</Button>
               </Link>
