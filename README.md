@@ -279,6 +279,14 @@ Logo was created using Canva, few versions were made until the final choice was 
 
 ![Logo](src/assets/readme/logo-readme.png)
 
+# CRUD
+
+There are 2 main CRUD ( Create Read Update and Delete) modules:
+
+1. Image
+2. Comments
+
+
 # Components
 
 One of the great benefits of using React is that application acn be built using reusable components. 
@@ -315,6 +323,12 @@ The testing was done following the steps as explained below.
 ![Testing-1](src/assets/readme/testing-1.png)
 
 ![Testing-2](src/assets/readme/testing-2.png)
+
+
+### Unfixed Bugs
+
+- Reset Password submission form is not working, form is not submitted to the API
+
 
 # Technologies
 
