@@ -26,14 +26,12 @@ export const AccountDataProvider = ({ children }) => {
         ...prevState,
         pageAccount: {
           results: prevState.pageAccount.results.map((account) => {
-            return account.id === selectedAccount.id
-              ? {
+            return account.id === selectedAccount.id ? {
                   ...account,
                   followers_count: account.followers_count + 1,
                   following_id: data.id,
                 }
-              : account.is_owner
-              ? { ...account, following_count: account.following_count + 1 }
+              : account.is_owner ? { ...account, following_count: account.following_count + 1 }
               : {
                   account,
                 };
@@ -63,14 +61,12 @@ export const AccountDataProvider = ({ children }) => {
         ...prevState,
         pageAccount: {
           results: prevState.pageAccount.results.map((account) => {
-            return account.id === selectedAccount.id
-              ? {
+            return account.id === selectedAccount.id ? {
                   ...account,
                   followers_count: account.followers_count - 1,
                   following_id: null,
                 }
-              : account.is_owner
-              ? { ...account, following_count: account.following_count - 1 }
+              : account.is_owner  ? { ...account, following_count: account.following_count - 1 }
               : {
                   account,
                 };
@@ -86,9 +82,10 @@ export const AccountDataProvider = ({ children }) => {
     <AccountDataContext.Provider value={accountData}>
       <SetAccountDataContext.Provider
         value={{ setAccountData, handleFollow, handleUnFollow }}
-      >
+    >
         {children}
       </SetAccountDataContext.Provider>
     </AccountDataContext.Provider>
   );
 };
+

@@ -258,6 +258,13 @@ Additionally some alt tags and aria labels were added. All pages passes accessab
 
 ![Accessability](src/assets/readme/accessability.png)
 
+# Validator Testing
+
+At first eslint was installed and confirgured to detect the errors, however this cause serious issues with launching development site. This was then reversed and attemptend again again multiple times with differnt configuration settings, however the issue persisisted. As a result a new branch was created going bach two commits to avoid eslint caused issues.
+
+The validation was performed using [JSHint](https://jshint.com/) instead. All pages passed the test with no significat issues. 
+
+
 # Technologies
 
 ### Languages Used

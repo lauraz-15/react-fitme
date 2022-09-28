@@ -31,8 +31,7 @@ function EditCommentForm(props) {
       setComments((prevComments) => ({
         ...prevComments,
         results: prevComments.results.map((comment) => {
-          return comment.id === id
-            ? {
+          return comment.id === id  ? {
                 ...comment,
                 text: content.trim(),
                 updated_on: "now",

@@ -69,8 +69,7 @@ const Image = (props) => {
       setImages((prevImages) => ({
         ...prevImages,
         results: prevImages.results.map((image) => {
-          return image.id === id
-            ? {
+          return image.id === id  ? {
                 ...image,
                 kudos_count: image.kudos_count + 1,
                 kudos_id: data.id,
@@ -91,8 +90,7 @@ const Image = (props) => {
       setImages((prevImages) => ({
         ...prevImages,
         results: prevImages.results.map((image) => {
-          return image.id === id
-            ? { ...image, kudos_count: image.kudos_count - 1, kudos_id: null }
+          return image.id === id ? { ...image, kudos_count: image.kudos_count - 1, kudos_id: null }
             : image;
         }),
       }));
