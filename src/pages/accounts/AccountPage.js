@@ -66,7 +66,7 @@ function AccountPage() {
               <Row>
                 <Col>
                   <Media>
-                    <Profile src={currUser?.account_image} height={200} />
+                    <Profile src={account?.image} height={200} />
                   </Media>
                 </Col>
                 <Col l={8}>
