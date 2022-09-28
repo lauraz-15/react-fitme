@@ -237,6 +237,53 @@ Project Goal: #4
 
 Project Goal: #4
 
+# Design
+
+### Wireframes
+
+Design of the website was intended to be simple, based on Ludwig Mies van der Rohe's principle in describing the minimalist aesthetic that less is more. 
+Only the necessary elements were included in the plan.
+
+Non Authenticated view
+![Non Authenticated view](src/assets/readme/non-auth.png)
+
+Authenticated view
+![Authenticated view](src/assets/readme/auth-view.png)
+
+Add Image page
+![Add Image Page](src/assets/readme/add-image.png)
+
+Sign Up Page
+![Sign Up](src/assets/readme/sign-up.png)
+
+Account page
+![Account page](src/assets/readme/account-page.png)
+
+### Design diagram
+
+The design diagram was created at the begining of the project to determine what pages will be visible when the user has been authenicated and which menu items would be hidden from the view otherwise. Additionally at that point it was determined what content will be availbale on each menu item.
+Over the time the diagram was used for reference and the app was build based on that.
+
+![Design diagram](src/assets/readme/design-diagram.png)
+
+### Typography
+
+The main font for the site is Montserrat. The choice for this font was based on the fact that this is well tested font that works well on the websites.
+The font was imported from [Google fonts](https://fonts.google.com/specimen/Montserrat)
+
+### Color Palette
+
+The following color pallette was used accross the site that is mainly taken from the logo colors.
+This is to ensure the consistent feel about the brand of the site on all pages.
+
+![Color palette](src/assets/readme/color-palette.png)
+
+### Logo
+
+Logo was created using Canva, few versions were made until the final choice was made mainly because of the simplicity of it which coralates to the simple feel of the website.
+
+![Logo](src/assets/readme/logo-readme.png)
+
 # Components
 
 One of the great benefits of using React is that application acn be built using reusable components. 
