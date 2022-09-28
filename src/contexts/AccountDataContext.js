@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { axiosRes } from "../api/axiosDefaults";
 
 export const AccountDataContext = createContext();
@@ -52,7 +52,7 @@ export const AccountDataProvider = ({ children }) => {
    */
   const handleUnFollow = async (selectedAccount) => {
     try {
-      const { data } = await axiosRes.delete(
+      await axiosRes.delete(
         `/followers/${selectedAccount.following_id}`,
         {
           followed: selectedAccount.id,

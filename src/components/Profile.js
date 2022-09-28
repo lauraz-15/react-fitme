@@ -12,7 +12,7 @@ const Profile = ({ src, height = 50, text }) => {
         src={src}
         height={height}
         width={height}
-        alt="profile photo"
+        alt="profile"
       />
     </span>
   );

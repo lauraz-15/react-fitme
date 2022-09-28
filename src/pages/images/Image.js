@@ -87,7 +87,7 @@ const Image = (props) => {
    */
   const handleRemoveKudos = async () => {
     try {
-      const { data } = await axiosRes.delete(`/kudos/${kudos_id}`);
+      await axiosRes.delete(`/kudos/${kudos_id}`);
       setImages((prevImages) => ({
         ...prevImages,
         results: prevImages.results.map((image) => {
