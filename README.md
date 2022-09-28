@@ -19,9 +19,6 @@ Link to code on github for the [github rapitory for API](https://github.com/laur
   + [Current User Goals](#current-user-goals "Current User Goals")
   + [New User Goals](#new-user-goals "New User Goals")
 + [User Stories](#user-stories "User Stories")
-  + [User stories](#user-stories "User stories")
-  + [Admin stories](#admin-stories "Admin stories")
-  + [Visitor stories](#visitor-stories "Visitor stories")
 + [Design](#design "Design")
   + [Wireframes](#wireframes "Wireframes")
   + [Typography](#typography "Typography")
@@ -29,7 +26,6 @@ Link to code on github for the [github rapitory for API](https://github.com/laur
   + [Logo](#logo "logo")
 + [Features](#features "Features")
   + [Existing Features](#existing-features "Existing Features")
-  + [Future Features](#future-features "Future Features")
 + [CRUD](#crud "CRUD - Create Read Update Delete")
 + [Components](#oomponents "Components")
 + [Testing](#testing "Testing")
@@ -93,7 +89,6 @@ The three milestones(sprints) are named Main, Build Up and Extra, which stand fo
 
 Please see the summary of the kanban board [here](https://github.com/users/lauraz-15/projects/2/views/1)
 
-## User stories
 
 ### EPIC: Navigation & Authentication
 
@@ -305,12 +300,21 @@ Additionally some alt tags and aria labels were added. All pages passes accessab
 
 ![Accessability](src/assets/readme/accessability.png)
 
-# Validator Testing
+### Validator Testing
 
 At first eslint was installed and confirgured to detect the errors, however this cause serious issues with launching development site. This was then reversed and attemptend again again multiple times with differnt configuration settings, however the issue persisisted. As a result a new branch was created going bach two commits to avoid eslint caused issues.
 
 The validation was performed using [JSHint](https://jshint.com/) instead. All pages passed the test with no significat issues. 
 
+### Manual Testing
+
+Extensive manual testign was performed when creating a site. Each new component/function added was tested on it's own and as a whole site.
+Once deployed site was tested again, each link, each functionality and available/restricted views as a logged in user and signed out user. 
+The testing was done following the steps as explained below.
+
+![Testing-1](src/assets/readme/testing-1.png)
+
+![Testing-2](src/assets/readme/testing-2.png)
 
 # Technologies
 
