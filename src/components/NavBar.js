@@ -25,7 +25,9 @@ const NavBar = () => {
       await axios.post("/dj-rest-auth/logout/");
       setCurrUser(null);
       removeTokenStamp();
-    } catch (err) {}
+    } catch (err) {
+      
+    }
   };
 
   const { opened, setOpened, ref } = Toggle();

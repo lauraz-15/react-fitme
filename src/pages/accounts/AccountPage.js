@@ -25,14 +25,15 @@ import { AccountEditDropdown } from "../../components/Edit";
  * Render Accounts page
  */
 function AccountPage() {
-  const [loaded, setLoaded] = useState(false);
   const currUser = useCurrUser();
   const { id } = useParams();
   const { setAccountData, handleFollow, handleUnFollow } = useSetAccountData();
   const { pageAccount } = useAccountData();
+  
   const [account] = pageAccount.results;
   const is_owner = currUser?.username === account?.owner;
   const [images, setImages] = useState({ results: [] });
+  const [loaded, setLoaded] = useState(false);
 
   /**
    * Get data about the acccunt owner from the api

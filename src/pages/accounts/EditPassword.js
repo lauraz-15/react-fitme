@@ -20,10 +20,10 @@ const EditPassword = () => {
   const currUser = useCurrUser();
 
   const [userInfo, setUserInfo] = useState({
-    updated_password1: "",
-    updated_password2: "",
+    new_password1: "",
+    new_password2: "",
   });
-  const { updated_password1, updated_password2 } = userInfo;
+  const { new_password1, new_password2 } = userInfo;
   const [errors, setErrors] = useState({});
 
   /**
@@ -70,9 +70,9 @@ const EditPassword = () => {
               <Form.Control
                 placeholder="my new password"
                 type="password"
-                value={updated_password1}
+                value={new_password1}
                 onChange={handleChange}
-                name="updated_password1"
+                name="new_password1"
               />
             </Form.Group>
             {errors?.updated_password1?.map((message, idx) => (
@@ -85,9 +85,9 @@ const EditPassword = () => {
               <Form.Control
                 placeholder="confirm new password"
                 type="password"
-                value={updated_password2}
+                value={new_password2}
                 onChange={handleChange}
-                name="updated_password2"
+                name="new_password2"
               />
             </Form.Group>
             {errors?.updated_password2?.map((message, idx) => (
