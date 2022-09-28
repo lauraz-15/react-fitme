@@ -9,6 +9,7 @@ FITME is a full stack project, the Frontend is built using [React](https://react
 Link to [deployed API](https://drf-fitme.herokuapp.com/)
 Link to code on github for the [github rapitory for API](https://github.com/lauraz-15/drf-fitme)
 
+[Mockup](src/assets/mock-up.png)
 
 ## Table of Contents
 
