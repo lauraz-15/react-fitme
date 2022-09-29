@@ -62,7 +62,7 @@ const Comment = (props) => {
         </Link>
         <Media.Body className="align-self-center ml-2">
           <span>{owner}</span>
-          <span>{updated_on}</span>
+          <span>   {updated_on}</span>
           {editForm ? (
             <EditCommentForm
               id={id}
