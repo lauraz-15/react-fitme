@@ -276,6 +276,33 @@ Logo was created using Canva, few versions were made until the final choice was 
 
 ![Logo](src/assets/readme/logo-readme.png)
 
+# Existing Features
+
+![Add Image](src/assets/readme/add-image-feature.png)
+
+This feature letš the user to share their fitness related photos on their profile, so they can review them whenever they want to. 
+
+![My feed page](src/assets/readme/my-feed-page.png)
+![Follow](src/assets/readme/follow-feature.png)
+
+users can follow one and other, so they can view the content on "My Feed" page tht only followed users have posted.
+
+- Home page(All posts)
+On the home page as a logged in or logged out users can view all posts. This way unregistered users can see what the page is about and that woudl interest them to register. On the other hand registered users can view everyone's posts and find more people they would want to follow.
+
+![Kudos](src/assets/readme/kudos-feed.png)
+
+User's can support to each other by giving kudos(liking the photo), this let's the users to interact with each other. Additionally they can review the photos later on my going on the kudos feed.
+
+![Profile](src/assets/readme/profile.png)
+
+Users can register and update their profile info and photo, which helps the users to share the information about them to other users. They can also update their weight goals and review this to keep themselves accountable. Account page also includes information such as how many images, followers user has, which helps to understand how active user is on the site.
+
+![Comment](src/assets/readme/comment-feature.png)
+
+Users can comment on each others and their own photos, which helps them to interact with each other, show support and help each other.
+
+
 # CRUD
 
 There are 2 main CRUD ( Create Read Update and Delete) modules:
