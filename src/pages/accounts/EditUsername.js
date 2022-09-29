@@ -11,6 +11,8 @@ import { useCurrUser, useSetCurrUser } from "../../contexts/CurrUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useHistory, useParams } from "react-router-dom";
 
+import btnStyles from "../../styles/Buttons.module.css";
+
 /**
  * Render Edit username form
  */
@@ -74,8 +76,8 @@ const EditUsername = () => {
                 {message}
               </Alert>
             ))}
-            <Button onClick={() => history.goBack()}>Cancel</Button>
-            <Button type="submit">Update</Button>
+            <Button className={btnStyles.SmallButton} onClick={() => history.goBack()}>Cancel</Button>
+            <Button className={btnStyles.SmallButton} type="submit">Update</Button>
           </Form>
         </Container>
       </Col>

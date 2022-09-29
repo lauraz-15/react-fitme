@@ -11,6 +11,8 @@ import { useCurrUser } from "../../contexts/CurrUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import { useHistory, useParams } from "react-router-dom";
 
+import btnStyles from "../../styles/Buttons.module.css";
+
 /**
  * Render the edit password form
  */
@@ -95,8 +97,8 @@ const EditPassword = () => {
                 {message}
               </Alert>
             ))}
-            <Button onClick={() => history.goBack()}>Cancel</Button>
-            <Button type="submit">Update</Button>
+            <Button className={btnStyles.SmallButton} onClick={() => history.goBack()}>Cancel</Button>
+            <Button className={btnStyles.SmallButton} type="submit">Update</Button>
           </Form>
         </Container>
       </Col>
