@@ -33,7 +33,6 @@ Link to code on github for the [github rapitory for API](https://github.com/laur
   + [Accessability](#accessability "Accessability")
   + [Validator Testing](#validator-testing "Validator Testing")
   + [Manual Testing](#manual-testing "Manual Testing")
-  + [Unfixed Bugs](#unfixed-bugs "Unfixed Bugs")
 + [Technologies](#technologies "Technologies")
   + [Languages Used](#languages-used "Languages Used")
   + [FrontEnd Libraries](#frontEnd-ibraries "FrontEnd Libraries")
@@ -351,9 +350,6 @@ Testign was performed on mobile device and desktop.
 
 ![Testing-3](src/assets/readme/testing-3.png)
 
-### Unfixed Bugs
-
-- Reset Password submission form is not working, form is not submitted to the API
 
 
 # Technologies
