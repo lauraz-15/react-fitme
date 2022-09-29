@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 import Image from "../images/Image";
 
+import styles from "../../styles/AccountPage.module.css"
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Buttons.module.css";
 
@@ -73,13 +74,13 @@ function AccountPage() {
                 <Col l={8}>
                   <h3 className="m-2">{account?.owner}</h3>
                   <hr />
-                  <p>
+                  <p className={styles.MainInfo}>
                     Imges: <span>{account?.images_count}</span>
                   </p>
-                  <p>
+                  <p className={styles.MainInfo}>
                     Followers: <span>{account?.followers_count}</span>
                   </p>
-                  <p>
+                  <p className={styles.MainInfo}>
                     Following: <span>{account?.following_count}</span>
                   </p>
                 </Col>
@@ -112,10 +113,10 @@ function AccountPage() {
                       ))}
                   </Col>
                   <br></br>
-                  <p>
+                  <p className={styles.MainInfo}>
                     Curent weight: <span>{account?.current_weight}</span>
                   </p>
-                  <p>
+                  <p className={styles.MainInfo}>
                     Goal weight: <span>{account?.goal_weight}</span>
                   </p>
                 </Col>
