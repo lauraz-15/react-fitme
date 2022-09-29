@@ -315,12 +315,14 @@ The validation was performed using [JSHint](https://jshint.com/) instead. All pa
 
 Extensive manual testign was performed when creating a site. Each new component/function added was tested on it's own and as a whole site.
 Once deployed site was tested again, each link, each functionality and available/restricted views as a logged in user and signed out user. 
-The testing was done following the steps as explained below.
+The testing was done following the steps in the example below below.
+Testign was performed on mobile device and desktop.
 
 ![Testing-1](src/assets/readme/testing-1.png)
 
 ![Testing-2](src/assets/readme/testing-2.png)
 
+![Testing-3](src/assets/readme/testing-3.png)
 
 ### Unfixed Bugs
 
