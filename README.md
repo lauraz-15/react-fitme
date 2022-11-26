@@ -2,11 +2,11 @@
 
 FITME is a social media platform for anyone interested to document their fitness journey. Users can upload images on their account to keep themselves accountable and monitor their progress over time. Additionally FITME users are able to give kudos(show support) to other user's images and follow each other.
 
-Link to deployed site: [FITME](https://react-fitme.herokuapp.com/)
+Link to deployed site: [FITME](https://react-fitme.onrender.com/)
 
 FITME is a full stack project, the Frontend is built using [React](https://reactnative.dev/) and the backend database and the API is built using [Django Rest Framework](https://www.django-rest-framework.org/)
 
-Link to [deployed API](https://drf-fitme.herokuapp.com/)
+Link to [deployed API](https://drf-api-sa31.onrender.com)
 Link to code on github for the [github rapitory for API](https://github.com/lauraz-15/drf-fitme)
 
 ![Mockup](src/assets/mock-up.png)
